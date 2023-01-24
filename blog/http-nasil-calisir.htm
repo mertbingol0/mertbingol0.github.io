@@ -75,7 +75,7 @@ Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açık
 
 <h4> GET on Client Side</h4>
 <p>GET methodu, server'dan bir veri isteğinde bulunduğumuzda kullanılan bir request methodudur. Örneğin herhangi bir sitede bir sayfaya tıklarsanız server'a "bana bu sayfayı getir" isteğinde bulunduğunuzdan dolayı HTTP protokolü GET methodunu kullanacaktır. Yani GET methodu server'dan herhangi bir veri talebinde bulunduğumuzda kullanılan bir methoddur. Ornek olarak asagida bloguma yapilan bir istegin headerini koydum. Bu requestte serverdan bir .html dosyasini bana sunmasini istedim bu sebeple GET methodu kullanildi.</p>
-<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/github'a%20koy%20baba.png"></img>
+<img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/github'a%20koy%20baba.png"></img>
 
 <h4> GET on Server Side</h4>
 Şimdi yukarıda verdiğim örnekteki request'in server tarafında nasıl işlendiğine bakalım. Örneklerimi herkesin anlayabileceği bir şekilde olması açısından ve Python'a olan hakimliğimden dolayı, Python programlama dili üzerinde Flask kütüphanesini kullanarak yapacağım.
@@ -104,7 +104,7 @@ Devam edelim. Kısaca client tarafından gelen request methodu GET ise <code>exa
 
 Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak "Method Not Allowed" hatası ile karşılaşırız. Ve hemen altında da "The method is not allowed for the requested URL." böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)
 
-<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
+<img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
 
 <hr>
 
@@ -114,7 +114,7 @@ POST request'i, server'a bir veri göndermek istediğimizde kullandığımız re
 
 Söz ettiğim fotoğraf yükleme işlemi için Instagram üzerinden bir örnek:
 
-<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-16%2001-06-53.png"></img>
+<img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/Screenshot%20from%202023-01-16%2001-06-53.png"></img>
 
 Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor (<a href="https://stackoverflow.com/questions/29775797/fetch-post-json-data">https://stackoverflow.com/questions/29775797/fetch-post-json-data</a>).
 
@@ -124,7 +124,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"B
 
 Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar çünkü göndereceğimiz veri JSON türündedir. (https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/) Backend tarafında yazdığım kod sayesinde burada gönderdiğimiz veriyi belirttiğim adreste görüntüleyebilmemizi sağlıyor. Aşağıya görseli ekledim:
 
-<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-16%2001-02-56.png"></img>
+<img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/Screenshot%20from%202023-01-16%2001-02-56.png"></img>
 
 <h4> POST on Server Side</h4>
 
