@@ -78,7 +78,7 @@ Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açık
 <img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/github'a%20koy%20baba.png"></img>
 
 <h4> GET on Server Side</h4>
-Şimdi yukarıda verdiğim örnekteki request'in server tarafında nasıl işlendiğine bakalım. Örneklerimi herkesin anlayabileceği bir şekilde olması açısından ve Python'a olan hakimliğimden dolayı, Python programlama dili üzerinde Flask kütüphanesini kullanarak yapacağım.
+<p>Şimdi yukarıda verdiğim örnekteki request'in server tarafında nasıl işlendiğine bakalım. Örneklerimi herkesin anlayabileceği bir şekilde olması açısından ve Python'a olan hakimliğimden dolayı, Python programlama dili üzerinde Flask kütüphanesini kullanarak yapacağım.<p>
 
 <pre><code>
 from flask import Flask, request, render_template
@@ -93,16 +93,16 @@ def example_request():
 if __name__ == '__main__':
     app.run(debug=True)
 </code></pre>
-Burada <code>@app.route()</code> yardımı ile URL üzerinde "/blog" sayfasına bir request atıldığında kullanıcıyı "/blog" sayfasına yönlendirmesini söylüyoruz. Bu işleme endpoint denir. Ardından <code>methods = ['GET']</code> kısmında ise bu endpointimize yapılan request methodunun sadece GET olması gerektiğini söylüyoruz. Böylece bu sayfaya sadece GET requesti atıldığında kabul edecek ve işlemlerini yapacak. Tabii eğer istersek bir sayfaya iki farklı request methodu atılabilmesini sağlayabiliriz.
+<p>Burada <code>@app.route()</code> yardımı ile URL üzerinde "/blog" sayfasına bir request atıldığında kullanıcıyı "/blog" sayfasına yönlendirmesini söylüyoruz. Bu işleme endpoint denir. Ardından <code>methods = ['GET']</code> kısmında ise bu endpointimize yapılan request methodunun sadece GET olması gerektiğini söylüyoruz. Böylece bu sayfaya sadece GET requesti atıldığında kabul edecek ve işlemlerini yapacak. Tabii eğer istersek bir sayfaya iki farklı request methodu atılabilmesini sağlayabiliriz.</p>
 
-Örnek:
+	<p>Örnek:</p>
 
 <code>
 @app.route('/blog', methods = ['GET', 'POST'])
 </code>
-Devam edelim. Kısaca client tarafından gelen request methodu GET ise <code>example_request()</code> fonksiyonumuz çalıştırılacak ve <code>render_template('blog.html')</code> ile birlikte "blog.html" dosyası "/blog" sayfasına requestte bulunan client'a sunulacak.
+<p>Devam edelim. Kısaca client tarafından gelen request methodu GET ise <code>example_request()</code> fonksiyonumuz çalıştırılacak ve <code>render_template('blog.html')</code> ile birlikte "blog.html" dosyası "/blog" sayfasına requestte bulunan client'a sunulacak.</p>
 
-Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak "Method Not Allowed" hatası ile karşılaşırız. Ve hemen altında da "The method is not allowed for the requested URL." böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)
+<p>Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak "Method Not Allowed" hatası ile karşılaşırız. Ve hemen altında da "The method is not allowed for the requested URL." böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)</p>
 
 <img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
 
@@ -116,13 +116,13 @@ Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa 
 
 <img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/Screenshot%20from%202023-01-16%2001-06-53.png"></img>
 
-Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor (<a href="https://stackoverflow.com/questions/29775797/fetch-post-json-data">https://stackoverflow.com/questions/29775797/fetch-post-json-data</a>).
+<p>Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor (<a href="https://stackoverflow.com/questions/29775797/fetch-post-json-data">https://stackoverflow.com/questions/29775797/fetch-post-json-data</a>).</p>
 
 <pre><code>
 curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"Bingol"}' http://194.233.166.90:8889/users/create
 </code></pre>
 
-Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar çünkü göndereceğimiz veri JSON türündedir. (https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/) Backend tarafında yazdığım kod sayesinde burada gönderdiğimiz veriyi belirttiğim adreste görüntüleyebilmemizi sağlıyor. Aşağıya görseli ekledim:
+<p>Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar çünkü göndereceğimiz veri JSON türündedir. (https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/) Backend tarafında yazdığım kod sayesinde burada gönderdiğimiz veriyi belirttiğim adreste görüntüleyebilmemizi sağlıyor. Aşağıya görseli ekledim:</p>
 
 <img src="https://raw.githubusercontent.com/mertbingol0/Web-101/main/Screenshot%20from%202023-01-16%2001-02-56.png"></img>
 
