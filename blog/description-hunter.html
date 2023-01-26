@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <title>Mert BINGOL | Cyber Security Blog</title>
@@ -29,16 +28,16 @@
 
 <article>
   <header>
-    <h1><a href="/blog/http-nasil-calisir.html">HTTP (Hyper Text Transfer Protokol) - Web 101</a></h1><time datetime="2017-03-01T00:00:00+00:00">Jan 24, 2023</time>
+    <h1><a href="/blog/http-nasil-calisir.html">OSINT Tool Projem ve Amacı (description-hunter)</a></h1><time datetime="2017-03-01T00:00:00+00:00">Jan 26, 2023</time>
 </header>
 
-<h2> OSINT Tool Projem ve Amacı</h2>
+<h2> OSINT Tool Projem ve Amacı (description-hunter)</h2>
      
      <h3>Neden?</h3>       
 <p>
     Geçenlerde canım sıkıldı ve YouTube'da takılıyım dedim. YouTube'a girdiğimde ana sayfamda CharmQuell'in bir yayını düştü. Yayın da "SiyahGiyenGenc" adlı bir YouTuber'in gerçek kişiliğini ortaya çıkarıyordu. Bunu yaparken tüm kaynaklarıyla, kanıtlayarak yapıyordu. Velashil, bu Siyah diye hitap edeceğim arkadaş kanıtli bir şekilde söylenen gerçekleri inkar etmeye devam ederken, CharmQuell ve ekibi Siyah'ın YouTube kanalında bir OSINT gerçekleştirdi. Bu OSINT sonucunda Siyah'ın bir videonun açıklama kısmında, Charm'in içerisinde kötü paylaşımlarla dolu bir Facebook hesabının Siyah'a ait olduğu iddası doğrulandı çünkü videonun açıklama kısmında o Facebook hesabının linki vardı. İşin komik kısmı bunlara rağmen Siyah bu iddaları reddediyordu ki artık bir idda değil, bir gerçekti.
 </p>
-
+<h3>Teknik Kısımlar</h3>
 <p>
     Bu yazdığım script sayesinde verilen bir YouTube kanalı üzerinde tüm videoların açıklamalarında bulunan linkleri topluyor ve sizlere sunuyor. Bunu yaparken YouTube API'ini kullanıyorum. Bu API sayesinde, YouTube'da bulunan verilere JSON türünde erişebiliyorum. İçerisinden "description" bölümünü çekiyor ve Python'da bulunan regex kütüphanesini kullanarak "description" bölümündeki tüm linkleri arıyor ve ekrana bastırıyourum. Bunu da her bir JSON verisi için döngüye sokuyorum.
 
@@ -46,9 +45,7 @@
 
 <p>Aşağıya, bu tool'un kullanımına dair örnek bir video bıraktım.</p>
 
-<iframe width="420" height="315"
-src="https://youtu.be/FYXtPX0SWgQ">
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FYXtPX0SWgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
