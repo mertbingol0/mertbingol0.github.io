@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<title>Mert BINGOL | Cyber Security Blog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="mertbingol0">
+<meta name="generator" content="Jekyll v3.9.0">
+<link rel="canonical" href="https://niklasbuschmann.github.io/contrast/welcome-to-jekyll/">
+
+<link rel="stylesheet" href="../css/frame.css">
+
+<link rel="alternate" href="/contrast/feed.xml" type="application/atom+xml" title="Mert BINGOL | Cyber Security Blog">
+
+
+
+
+
+
+
+<header>
+  <a href="/" class="title">Blog</a>
+  <nav>
+    <a href="/" >Home</a>
+    <a href="/about.html" >About</a>
+</nav>
+
+</header>
+
+<article>
+  <header>
+    <h1><a href="/blog/http-nasil-calisir.html">HTTP (Hyper Text Transfer Protokol) - Web 101</a></h1><time datetime="2017-03-01T00:00:00+00:00">Jan 24, 2023</time>
+</header>
+
+<h2> OSINT Tool Projem ve Amacı</h2>
+     
+     <h3>Neden?</h3>       
+<p>
+    Geçenlerde canım sıkıldı ve YouTube'da takılıyım dedim. YouTube'a girdiğimde ana sayfamda CharmQuell'in bir yayını düştü. Yayın da "SiyahGiyenGenc" adlı bir YouTuber'in gerçek kişiliğini ortaya çıkarıyordu. Bunu yaparken tüm kaynaklarıyla, kanıtlayarak yapıyordu. Velashil, bu Siyah diye hitap edeceğim arkadaş kanıtli bir şekilde söylenen gerçekleri inkar etmeye devam ederken, CharmQuell ve ekibi Siyah'ın YouTube kanalında bir OSINT gerçekleştirdi. Bu OSINT sonucunda Siyah'ın bir videonun açıklama kısmında, Charm'in içerisinde kötü paylaşımlarla dolu bir Facebook hesabının Siyah'a ait olduğu iddası doğrulandı çünkü videonun açıklama kısmında o Facebook hesabının linki vardı. İşin komik kısmı bunlara rağmen Siyah bu iddaları reddediyordu ki artık bir idda değil, bir gerçekti.
+</p>
+
+<p>
+    Bu yazdığım script sayesinde verilen bir YouTube kanalı üzerinde tüm videoların açıklamalarında bulunan linkleri topluyor ve sizlere sunuyor. Bunu yaparken YouTube API'ini kullanıyorum. Bu API sayesinde, YouTube'da bulunan verilere JSON türünde erişebiliyorum. İçerisinden "description" bölümünü çekiyor ve Python'da bulunan regex kütüphanesini kullanarak "description" bölümündeki tüm linkleri arıyor ve ekrana bastırıyourum. Bunu da her bir JSON verisi için döngüye sokuyorum.
+
+</p>
+
+<p>Aşağıya, bu tool'un kullanımına dair örnek bir video bıraktım.</p>
+
+<iframe width="420" height="315"
+src="https://youtu.be/FYXtPX0SWgQ">
+</iframe>
+
+
+
+  
+</article>
+
+
+
+<footer>
+  <div>Mert Bingol</div>
+  <nav><a href="mailto:niklasbuschmann@users.noreply.github.com" ><svg aria-label="Mail" class="icon"><use xlink:href="/contrast/assets/fontawesome/icons.svg#envelope"></use></svg></a><a href="https://github.com/niklasbuschmann/contrast" ><svg aria-label="Github" class="icon"><use xlink:href="/contrast/assets/fontawesome/icons.svg#github"></use></svg></a><a href="/contrast/feed.xml" ><svg aria-label="Subscribe" class="icon"><use xlink:href="/contrast/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+</html>
