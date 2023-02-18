@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet"
+      href="../highlight/styles/default.min.css">
 <title>
         Mert Bingöl
         | Cyber Security Blog
@@ -100,12 +102,15 @@
          
          <p>Ornek bir HTTP header yapısı şu şekildedir: Tabii programcının yazı şekline göre birçok ek bilgi daha olabilir, lakin şuan da söz ettiğim kısımlar kesinlikle bir http requesti içerisinde olması gereken kısımlardır.</p>
                      
-         <pre>
-         GET /index.html HTTP/1.1
-         Host: mertbingol.online
-         Accept: text/html
-         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
-         </pre>
+    <pre><code class="highlight language-js">
+GET /index.html HTTP/1.1
+Host: mertbingol.online
+Accept: text/html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) (=>)
+AppleWebKit/537.36 (KHTML, like Gecko) (=>)
+Chrome/108.0.0.0 Safari/537.36 (end)
+    </code></pre>
+
          <p>Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açıklamalarını aşağıda yazdım:</p>
          <p><b>Request(GET) </b> Bu kısım HTTP header'inin ilk satırıdır ve burada nereye, ne şekilde request atılacağı bilgisi bulunur. Örneğin yukarıda verdiğim örnekte index.html'e bir GET requesti atılmış (Bu request metodlarına birazdan değineceğim).</p>
          <p><b>Host </b>Bu kısım, isteğin hangi sunucuya yönlendirileceğini belirtir. Yani domain'in karşılık geldiği IP adresini öğrenir. HTTP'nin bu bilgiye ihtiyacı vardır çünkü başka türlü ilgili web servisi ile iletişimde bulunamaz.</p>
@@ -137,18 +142,17 @@
          <h4> GET on Server Side</h4>
          <p>Şimdi yukarıda verdiğim örnekteki request'in server tarafında nasıl işlendiğine bakalım. Örneklerimi herkesin anlayabileceği bir şekilde olması açısından ve Python'a olan hakimliğimden dolayı, Python programlama dili üzerinde Flask kütüphanesini kullanarak yapacağım.<p>
          
-         <pre><code>
-         from flask import Flask, request, render_template
-         
-         app = Flask(__name__)
-         
-         @app.route('/blog', methods = ['GET'])
-         def example_request():
-             return render_template('blog.html')
-         
-         
-         if __name__ == '__main__':
-             app.run(debug=True)
+<pre><code class="highlight language-python">
+from flask import Flask, request, render_template
+
+app = Flask(__name__)
+
+@app.route('/blog', methods = ['GET'])
+def example_request():
+    return render_template('blog.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
          </code></pre>
          <p>Burada <code>@app.route()</code> yardımı ile URL üzerinde "/blog" sayfasına bir request atıldığında kullanıcıyı "/blog" sayfasına yönlendirmesini söylüyoruz. Bu işleme endpoint denir. Ardından <code>methods = ['GET']</code> kısmında ise bu endpointimize yapılan request methodunun sadece GET olması gerektiğini söylüyoruz. Böylece bu sayfaya sadece GET requesti atıldığında kabul edecek ve işlemlerini yapacak. Tabii eğer istersek bir sayfaya iki farklı request methodu atılabilmesini sağlayabiliriz.</p>
          
@@ -175,8 +179,9 @@
          
          <p>Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor (<a href="https://stackoverflow.com/questions/29775797/fetch-post-json-data">https://stackoverflow.com/questions/29775797/fetch-post-json-data</a>).</p>
          
-         <pre><code>
-         curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"Bingol"}' http://194.233.166.90:8889/users/create
+<pre><code class="highlight language-bash">        
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"Bingol"}' =>
+http://194.233.166.90:8889/users/create
          </code></pre>
          
          <p>Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar çünkü göndereceğimiz veri JSON türündedir. (https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/) Backend tarafında yazdığım kod sayesinde burada gönderdiğimiz veriyi belirttiğim adreste görüntüleyebilmemizi sağlıyor. Aşağıya görseli ekledim:</p>
@@ -187,27 +192,28 @@
          
          <p>Gelelim işin backend kısmına. Burada, yukarıda yaptığımız işlemlerin arka tarafta ne gibi süreçlerden geçtiğine değineceğiz. İlk olarak bir JSON verisinin frontend tarafından nasıl alındığına değinelim. Fakat öncesinde tüm kodu vererek açıklamalarını yapayım ve ardından işlenen süreçlere adım adım devam ederiz.</p>
          
-         <pre><code>
-         import json
-         from flask import Flask, jsonify, request
-         app = Flask(__name__)
+<pre><code class="highlight language-python">
+import json
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
          
-         @app.route("/users/create", methods=["POST"])
-         def create_users():
-             data = request.get_json()
-             with open("users.json", "w") as f:
-                 json.dump(data, f)
-             return "Data received and saved"
+@app.route("/users/create", methods=["POST"])
+def create_users():
+    data = request.get_json()
+    with open("users.json", "w") as f:
+        json.dump(data, f)
+    return "Data received and saved"
              
-         @app.route("/list-users", methods=["GET"])
-         def list_users():
-             with open('users.json') as json_file:
-                 data = json.load(json_file)
-             return jsonify(data)
+@app.route("/list-users", methods=["GET"])
+def list_users():
+    with open('users.json') as json_file:
+        data = json.load(json_file)
+    return jsonify(data)
          
-         if __name__ == '__main__':
-             app.run(debug=True)
-         </code></pre>
+ if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
          
          <p>Klasik işlemleri atlayarak, asıl kısımlara değiniyorum. <code>@app.route("/users/create", methods=["POST"])</code> Bu kısımda "/users/create" adında bir sayfa oluşturdum ve bu sayfaya sadece POST request'i atılabilmesini sağladım. Ardından "data" adında bir değişken oluşturup yukarıdaki örneğimizde bize gelen .json verisini backend tarafında yakalayıp "data" adlı değişkenime değer olarak atadım ve yakaladığım .json verisini "users.json" adlı dosyaya yazmasını söyledim. Son olarakta return ile "Data received and saved" mesajını bize gönderilen request'e response olarak döndürdüm.</p>
          
@@ -269,6 +275,10 @@
 </footer>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../js/main.js"></script>
 <script src="../js/prism.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  <script src="../highlight/highlight.min.js"></script>
 </div>
 </body>
 </html>

@@ -1,242 +1,140 @@
 
 
-
-<!doctype html>
-<!--[if !IE]>
-<html class="no-js non-ie" lang="en-US"> <![endif]-->
-<!--[if IE 7 ]>
-<html class="no-js ie7" lang="en-US"> <![endif]-->
-<!--[if IE 8 ]>
-<html class="no-js ie8" lang="en-US"> <![endif]-->
-<!--[if IE 9 ]>
-<html class="no-js ie9" lang="en-US"> <![endif]-->
-<!--[if gt IE 9]><!-->
-<html class="no-js" lang="en-US"> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<title>Mert Bingol | Cyber Security Blog</title>
-<meta name='robots' content='max-image-preview:large' />
-<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="Ayşe Bilge Gündüz &raquo; Feed" href="https://aysebilge.com/feed/" />
-<link rel="alternate" type="application/rss+xml" title="Ayşe Bilge Gündüz &raquo; Comments Feed" href="https://aysebilge.com/comments/feed/" />
-<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/aysebilge.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.3"}};
-			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script>
-<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-<link rel='stylesheet' id='wp-block-library-css' href='https://aysebilge.com/wp-includes/css/dist/block-library/style.min.css?ver=5.7.3' type='text/css' media='all' />
-<link rel='stylesheet' id='sparkling-bootstrap-css' href='https://aysebilge.com/wp-content/themes/sparkling/assets/css/bootstrap.min.css?ver=5.7.3' type='text/css' media='all' />
-<link rel='stylesheet' id='sparkling-icons-css' href='https://aysebilge.com/wp-content/themes/sparkling/assets/css/fontawesome-all.min.css?ver=5.1.1.' type='text/css' media='all' />
-<link rel='stylesheet' id='sparkling-fonts-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=5.7.3' type='text/css' media='all' />
-<link rel='stylesheet' id='sparkling-style-css' href='https://aysebilge.com/wp-content/themes/sparkling/style.css?ver=2.4.2' type='text/css' media='all' />
-<link rel='stylesheet' id='enlighterjs-css' href='https://aysebilge.com/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=sKjo/nwKXlBoHSq' type='text/css' media='all' />
-<script type='text/javascript' src='https://aysebilge.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
-<script type='text/javascript' src='https://aysebilge.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-<script type='text/javascript' src='https://aysebilge.com/wp-content/themes/sparkling/assets/js/vendor/bootstrap.min.js?ver=5.7.3' id='sparkling-bootstrapjs-js'></script>
-<script type='text/javascript' src='https://aysebilge.com/wp-content/themes/sparkling/assets/js/functions.js?ver=20180503' id='sparkling-functions-js'></script>
-<link rel="https://api.w.org/" href="https://aysebilge.com/wp-json/" /><link rel="alternate" type="application/json" href="https://aysebilge.com/wp-json/wp/v2/posts/154" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://aysebilge.com/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://aysebilge.com/wp-includes/wlwmanifest.xml" />
-<meta name="generator" content="WordPress 5.7.3" />
-<link rel="canonical" href="https://aysebilge.com/2023/01/22/bath/" />
-<link rel='shortlink' href='https://aysebilge.com/?p=154' />
-<link rel="alternate" type="application/json+oembed" href="https://aysebilge.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faysebilge.com%2F2023%2F01%2F22%2Fbath%2F" />
-<style type="text/css"></style><link rel="pingback" href="https://aysebilge.com/xmlrpc.php"> <style type="text/css">
-				.navbar > .container .navbar-brand {
-			color: #dadada;
-		}
-		</style>
+<title>
+        Mert Bingöl
+        | Cyber Security Blog
+      </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="shortcut icon" href="/img/favicon.png" />
+<link href="../fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Posts" />
+<meta name="twitter:description" content="" />
+<meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/posts/" /><meta property="og:site_name" content="Mert Bingöl" />
 </head>
-<body class="post-template-default single single-post postid-154 single-format-standard">
-<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
-<div id="page" class="hfeed site">
-<header id="masthead" class="site-header" role="banner">
-<nav class="navbar navbar-default
-		" role="navigation">
+<body class="dark-theme">
 <div class="container">
-<div class="row">
-<div class="site-navigation-inner col-sm-12">
-<div class="navbar-header">
-<div id="logo">
-<p class="site-name"> <a class="navbar-brand" href="https://mertbingol0.github.io/" title="Mert Bingol | Cyber Security Blog" rel="home">Mert Bingol</a>
-</p> </div>
-<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-</div>
-<div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-who-am-i" class="nav navbar-nav"><li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a href="https://mertbingol0.github.io/about.html">Who Am I</a></li>
-</ul></div>
-</div>
-</div>
-</div>
+<header class="header">
+<span class="header__inner">
+<a href="/" class="logo" style="text-decoration: none;">
+<span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+<path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+<span class="logo__text">mertbingol</span
+    >
+<span class="logo__cursor"></span>
+</a>
+<span class="header__right">
+<nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+                <li><a href="/about">About</a></li>
+                <li><a href="/achievements">Achievements</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="/Resume.pdf">Resume</a></li>
+                </ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href="/about">About</a></li>
+<li><a href="/achievements">Achievements</a></li>
+<li><a href="/archive">Archive</a></li>
+<li><a href="/Resume.pdf">Resume</a></li>
+</ul>
 </nav>
+<span class="menu-trigger">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M0 0h24v24H0z" fill="none" />
+<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+</svg>
+</span>
+<span class="theme-toggle">
+<svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
+</svg>
+</span>
+</span>
+</span>
 </header>
-<div id="content" class="site-content">
-<div class="top-section">
-</div>
-<div class="container main-content-area">
-<div class="row side-pull-left">
-<div class="main-content-inner col-sm-12 col-md-8">
-<div id="primary" class="content-area">
-<main id="main" class="site-main" role="main">
-<article id="post-154" class="post-154 post type-post status-publish format-standard hentry category-ingiltere-seyahat category-seyahat tag-bath tag-bath-abbey tag-bibliyofil tag-bridgerton tag-ingiltere tag-jane-austen tag-northanger-manastiri tag-pulteney-bridge">
-    <div class="post-inner-content">
-<header class="entry-header page-header">
-
-<h1 class="entry-title ">About Me</h1>
-<div class="entry-meta">
-<span class="posted-on"></i> <a href="blog/description-hunter.html" rel="bookmark"><time class="entry-date published" datetime="2023-01-22T17:30:14+00:00">January 24, 2023</time><time class="updated" datetime="2023-01-22T21:06:00+00:00">January 24, 2023</time></a></span>
-<span class="cat-links"></i>
-<a href="https://mertbingol0.github.io/category/projects.html" rel="category tag">Projects, API Programing</a></span>
-</div>
-</header>
-<div class="entry-content">
-
-    <p>Merhaba, ben Mert Bingöl. Yazılım ve siber güvenlik konularına odaklı bir web application developer olarak, özellikle web güvenliği konusunda bilgi birikimim olması için çalışmalar gerçekleştiriyorum. Web uygulamalarının backend tarafında da çalışıyorum. Blogumda, web uygulamalarının güvenliği, geliştirilmesi, test edilmesi ve daha birçok güvenlik konularına değineceğim ve sizlere web güvenliği konusunda bilgi ve ipuçları sunacağım. Ayrıca, siber güvenlik konularının yanı sıra, yazılım geliştirmeyle ilgili konulara da kafa yoracağız. Edindiğim bilgileri sizlere anlatmam gerekiyor çünkü Mehmet abinin dediği gibi, "edindiğim bilgileri paylaşmayı borç bilirim".</p>
-    
-    <h2>Skills</h2>
-    <p>Python ile backend web uygulamalarının yazılması konusunda orta seviyede bilgi ve tecrübem var. Ayrıca, API entegrasyonları gerçekleştirebilir, veritabanı işlemleri yapabilir ve web scriptleri oluşturabilirim. Aynı zamanda Web uygulamalarının güvenliği konusunda da bilgi birikimine sahibim, her geçen gün öğrenmeye devam ediyor ve arada sırada bugbounty yoluyla da bu konularda deneyim kazanmaya çalışıyorum. Bu öğrenme sürecimde edindiğim bilgileri burada sizlerle paylaşıyor olacağım.</p>
-    <h2>Social Media Accounts and Contacts</h2>
-    <p>Sosyal medya hesaplarımda genellikle yaptığım çalışmaları ve kendi hayatımdan birkaç kare paylaşıyorum. Eğer beni daha yakından tanımak isterseniz ve neler yaptığımı, nelerle uğraştığımı ve daha fazlasını merak ediyorsanız, beni takip edebilirsiniz. Ayrıca, Youtube kanalımda da canım sıkıldıkça bir şeyler yapmaya çalışıyorum.</p>
+<div class="content">
+<div class="post">
+        <h1 class="post-title"><a href="/posts/about.html">About Me</a></h1>
+        <div class="post-meta">
+          <img src="https://raw.githubusercontent.com/mertbingol0/mertbingol0.github.io/main/imgs/VCTZJsL-_400x400.jpg">
+          
+          <p>Merhaba, ben Mert Bingöl. Yazılım ve siber güvenlik konularına odaklanan bir web uygulama geliştiricisiyim. Özellikle web uygulamalarının güvenliği konusunda geniş bir bilgi birikimine sahibim ve sürekli olarak bu alanda kendimi geliştirmeye çalışıyorum. Web uygulamalarının backend tarafında da çalışıyorum.
+          </p>
+          <p>Bu blogda, web uygulamalarının güvenliği, geliştirilmesi, test edilmesi ve daha birçok güvenlik konusunu ele alacağım ve okuyucularıma web güvenliği konusunda bilgi ve ipuçları sunacağım. Ayrıca, siber güvenlik konularının yanı sıra yazılım geliştirmeyle ilgili konulara da değineceğim.</p>
+          <p>Python ile backend web uygulamalarının yazılması konusunda orta seviyede bilgi ve deneyime sahibim. Ayrıca, API entegrasyonları gerçekleştirebilir, veritabanı işlemleri yapabilir ve web scriptleri oluşturabilirim. Web uygulamalarının güvenliği konusunda da geniş bir bilgi birikimine sahibim ve bugbounty programlarına katılarak bu konularda deneyim kazanmaya çalışıyorum.
+          </p>
+          <p>Sorumluluk bilincim ve bilgi birikimimi paylaşma konusundaki tutkum nedeniyle, edindiğim bilgileri okuyucularımla paylaşmayı hedefliyorum. Ayrıca, yazılım geliştirme konusunda farklı alanlarda çalışan insanlarla etkileşim halinde olmak ve birlikte öğrenmek istiyorum.
+          </p>
+          <hr>
+          <h2>Social Media Accounts and Contacts</h2>
+          
+          <p>Sosyal medya hesaplarımda, yaptığım çalışmaları ve kişisel ilgi alanlarımı paylaşıyorum. Beni daha yakından tanımak ve takip etmek isterseniz, sosyal medya hesaplarımı takip edebilir veya bana doğrudan ulaşmak için aşağıdaki iletişim bilgilerimi kullanabilirsiniz:          </p>
 <li><a href="https://twitter.com/mertbingol03/">Twitter</a></li>
 <li><a href="https://github.com/mertbingol0">Github</a></li>
 <li><a href="https://www.youtube.com/@mertbingol0">Youtube</a></li>
 <li><a href="https://instagram.com/mertbingol0/">Instagram</a></li>
 <li>mail: mertbingol00@protonmail.com</li>
+</div></div></div></div></body></html>
 </div>
-<footer class="entry-meta">
-
-<div class="tagcloud">
+<div class="pagination">
+<div class="pagination__title">
+<span class="pagination__title-h">Read other posts</span
+            >
+<hr />
 </div>
-
-</footer>
-</div>
-</article>
-
-</main>
-</div>
-</div>
-<div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
-<div class="well">
-<aside id="search-2" class="widget widget_search">
-<form role="search" method="get" class="form-search" action="https://mertbingol0.github.io/">
-<div class="input-group">
-<label class="screen-reader-text" for="s">Search for:</label>
-<input type="text" class="form-control search-query" placeholder="Search&hellip;" value="" name="s" title="Search for:" />
-<span class="input-group-btn">
-<button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+<div class="pagination__buttons">
+<span class="button next">
+<a href="/posts/404">
+<span class="button__text">Next Post</span>
+<span class="button__icon">→</span>
+</a>
 </span>
 </div>
-</form>
-</aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h3 class="widget-title">Mert Bingol</h3><div class="textwidget custom-html-widget"><a href="">
-    <img src="https://raw.githubusercontent.com/mertbingol0/mertbingol0.github.io/main/imgs/VCTZJsL-_400x400.jpg">
-</a></div></aside>
-<aside id="recent-posts-2" class="widget widget_recent_entries">
-    <h3 class="widget-title">Recent Posts</h3>
-    <ul>
-    <li>
-    <a href="/blog/description-hunter.html">OSINT Tool Projem ve Amacı (description-hunter)</a>
-    </li>
-    <li>
-    <a href="/blog/http.html">A'dan Z'ye HTTP (Hyper Text Transfer Protokol) Nedir?</a>
-    </li>
-    <li>
-    </ul>
-</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tag Cloud</h3><div class="tagcloud">
-    <a href="/tag/HTTP/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">HTTP</a>
-    <a href="/tag/backend/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">Backend</a>
-    <a href="/tag/backend-programing/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">backend-programing</a>
-    <a href="/tag/Python/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">Python</a>
-    <a href="/tag/security-blog/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">security-blog</a>
-    <a href="/tag/Flask/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">Flask</a>
-    <a href="/tag/scripts/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">scripts</a>
-    <a href="/tag/Network/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">network</a>
-    <a href="/tag/OSINT/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 8pt;" aria-label="bath (1 item)">OSINT</a>
-    <a href="/tag/bugbounty/" class="tag-cloud-link tag-link-11 tag-link-position-8" style="font-size: 8pt;" aria-label="bugbounty (1 item)">bugbounty</a>
-    <a href="/tag/burp/" class="tag-cloud-link tag-link-7 tag-link-position-9" style="font-size: 8pt;" aria-label="burp (1 item)">burp</a>
-    <a href="/tag/idor/" class="tag-cloud-link tag-link-9 tag-link-position-12" style="font-size: 8pt;" aria-label="idor (1 item)">idor</a>
-    <a href="/tag/pentest/" class="tag-cloud-link tag-link-6 tag-link-position-19" style="font-size: 8pt;" aria-label="pentest (1 item)">pentest</a>
-    <a href="/tag/websec/" class="tag-cloud-link tag-link-10 tag-link-position-22" style="font-size: 8pt;" aria-label="websec (1 item)">websec</a></div>
-    </aside><aside id="categories-4" class="widget widget_categories"><h3 class="widget-title">Categories</h3>
-    <ul>
-    <li class="cat-item cat-item-5"><a href="category/application-security/">Application Security</a>
-    </li>
-    <li class="cat-item cat-item-27"><a href="category/backend-programing-and-security">Backend Programing and Security</a>
-    </li>
-    <li class="cat-item cat-item-3"><a href="category/python/">Python</a>
-    </li>
-    <li class="cat-item cat-item-26"><a href="category/flask/">Flask</a>
-    </li>
-    <li class="cat-item cat-item-26"><a href="category/network/">Network</a></li>
-    </ul>
-    </aside> </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div id="footer-area">
-    <div class="container footer-inner">
-    <div class="row">
-    </div>
-    </div>
-    <footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="site-info container">
-    <div class="row">
-    <nav role="navigation" class="col-md-6">
-    </nav>
-    <div class="copyright col-md-6">
-    Mert Bingol <a href="https://twitter.com/mertbingol03" target="_blank">Twitter</a>
-    <a href="https://instagram.com/mertbingol0" target="_blank">Instagram</a>
-    <a href="https://github.com/mertbingol0" target="_blank">Github</a>
-    <a href="mail.html" target="_blank">Mail</a>
-    </div>
-    </div>
-    </div>
-    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
-    </footer>
-    </div>
-    </div>
-    <script type="text/javascript">
-              jQuery(document).ready(function ($) {
-                if ($(window).width() >= 767) {
-                  $('.navbar-nav > li.menu-item > a').click(function () {
-                    if ($(this).attr('target') !== '_blank') {
-                      window.location = $(this).attr('href')
-                    }
-                  })
-                }
-              })
-            </script>
-    <script type='text/javascript' id='disqus_count-js-extra'>
-    /* <![CDATA[ */
-    var countVars = {"disqusShortname":"aysebilge"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='https://aysebilge.com/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.17' id='disqus_count-js'></script>
-    <script type='text/javascript' src='https://aysebilge.com/wp-content/themes/sparkling/assets/js/skip-link-focus-fix.min.js?ver=20140222' id='sparkling-skip-link-focus-fix-js'></script>
-    <script type='text/javascript' src='https://aysebilge.com/wp-content/plugins/enlighter/resources/enlighterjs/enlighterjs.min.js?ver=4.0' id='enlighterjs-js'></script>
-    <script type='text/javascript' id='enlighterjs-js-after'>
-    !function(n,o){"undefined"!=typeof EnlighterJS?(n.EnlighterJSINIT=function(){EnlighterJS.init("pre.EnlighterJSRAW", "code.EnlighterJSRAW", {"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":true,"theme":"atomic","retainCssClasses":false})})():(o&&(o.error||o.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}(window,console);
-    </script>
-    <script type='text/javascript' src='https://aysebilge.com/wp-includes/js/wp-embed.min.js?ver=5.7.3' id='wp-embed-js'></script>
-    </body>
-    </html>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="footer__inner">
+<a href="/" class="logo" style="text-decoration: none;">
+<span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+<path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+<span class="logo__text">mertbingol</span
+    >
+<span class="logo__cursor"></span>
+</a>
+<div class="copyright">
+<span>Contact me
+<a href="https://twitter.com/mertbingol03" target="_blank" rel="noopener">Mert B.</a></span
+        >
+</div>
+</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../js/main.js"></script>
+<script src="js/prism.js"></script>
+</div>
+</body>
+</html>
