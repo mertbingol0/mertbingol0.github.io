@@ -186,6 +186,25 @@ Bu blog yazısında, Google dorklarının ne olduğu ve nasıl kullanılabilece�
 		display: none !important;
 	}
 }
+	
+	@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  /* Daha fazla stil kuralı buraya eklenebilir */
+}
+
+/* Bu stil kuralları, ekran genişliği 768 pikselden büyük olan cihazlar için geçerlidir. */
+@media only screen and (min-width: 769px) {
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 36px;
+  }
 
 </style>
 <div id="blabla"></div>
