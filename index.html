@@ -1,32 +1,36 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>
-        Mert Bingöl
-        | Cyber Security Blog
+        Posts ::
+        Eren Şimşek
       </title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="/posts/" />
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png" />
 <link rel="shortcut icon" href="/img/favicon.png" />
-<link href="../fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="../fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="../fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="../fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="../fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="../fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Posts" />
 <meta name="twitter:description" content="" />
 <meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/posts/" /><meta property="og:site_name" content="Mert Bingöl" />
+<meta property="og:url" content="/posts/" /><meta property="og:site_name" content="Eren Şimşek" />
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="Eren Şimşek" />
 </head>
 <body class="dark-theme">
 <div class="container">
@@ -37,22 +41,24 @@
 <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
 </svg>
 </span>
-<span class="logo__text">mertbingol</span
+<span class="logo__text">eren.run</span
     >
 <span class="logo__cursor"></span>
 </a>
 <span class="header__right">
 <nav class="menu">
-        <ul class="menu__inner menu__inner--desktop">
-                <li><a href="/about">About</a></li>
-                <li><a href="/achievements">Achievements</a></li>
-                <li><a href="/archive">Archive</a></li>
-                <li><a href="/Resume.pdf">Resume</a></li>
-                </ul>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href="/about">About</a></li>
+<li><a href="/achievements">Achievements</a></li>
+<li><a href="/archive">Archive</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/Resume.pdf">Resume</a></li>
+</ul>
 <ul class="menu__inner menu__inner--mobile">
 <li><a href="/about">About</a></li>
 <li><a href="/achievements">Achievements</a></li>
 <li><a href="/archive">Archive</a></li>
+<li><a href="/tags">Tags</a></li>
 <li><a href="/Resume.pdf">Resume</a></li>
 </ul>
 </nav>
@@ -75,62 +81,51 @@
 <div class="content">
 <div class="posts">
 <div class="post on-list">
-
- 
-	
-
-	
-<h1 class="post-title"><a href="/posts/http.html">A'dan Z'ye HTTP: Nedir ve Nasıl Çalışır?</a></h1>
+<h1 class="post-title"><a href="/posts/iot_hacking_firmware_emulation/">IoT Hacking: Firmware Emulation</a></h1>
 <div class="post-meta">
 <span class="post-date">
-2023-01-26
+2021-08-05
 </span>
-<span class="post-author">— Written by Mert Bingöl</span
+<span class="post-author">— Written by Eren Şimşek</span
             >
-<span class="post-read-time">— 6 min read</span
+<span class="post-read-time">— 2 min read</span
             >
-	
-	</div>
+</div>
 <span class="post-tags">
-<a href="/tags/">#HTTP #requests #JSON #internet #dataexchange #networking #webprotocols </a>&nbsp;
+<a href="/tags/iot-hacking/">#IoT Hacking</a>&nbsp;
 </span>
 <div class="post-content">
-  Bu yazımda HTTP'nin A'dan Z'ye ne olduğunu ve nasıl çalıştığını anlatmaya çalıştım. Bunu yaparken aynı zamanda örnek kodlarla daha detaylı açıklama yapmaya gayret gösterdim. Ayrıca açıklamasını iyi yapamadığımı düşündüğüm konular için bazı blog/makale önerilerinde bulundum. Keyifli okumalar :)</div>
+Bu makalede IoT Firmware Emulation ile ilgileneceğiz. Bir önceki yazımda <a href="https://www.eren.run/posts/iot_hacking_firmware_extraction/">Firmware Extraction</a>&lsquo;dan bahsettim. Bu makelede Firmware&rsquo;ı direkt olarak ayağa kaldıracağız. Zerodayinitiative&rsquo;in yayınlamış olduğu güzel bir blog&rsquo;a <a href="https://www.zerodayinitiative.com/blog/2020/5/27/mindshare-how-to-just-emulate-it-with-qemu">buradan</a> ulaşabilirsiniz.
+</div>
 <div>
-<a class="read-more button" href="/posts/http.html">Read more →</a>
+<a class="read-more button" href="/posts/iot_hacking_firmware_emulation/">Read more →</a
+            >
 </div>
 </div>
-	
-</div>
-
-	<h1 class="post-title"><a href="/posts/http.html">A'dan Z'ye HTTP: Nedir ve Nasıl Çalışır?</a></h1>
+<div class="post on-list">
+<h1 class="post-title"><a href="/posts/iot_hacking_firmware_extraction/">IoT Hacking: Firmware Extraction</a></h1>
 <div class="post-meta">
 <span class="post-date">
-2023-01-26
+2021-08-04
 </span>
-<span class="post-author">— Written by Mert Bingöl</span>
-<span class="post-read-time">— 6 min read</span>
-	
-	</div>
+<span class="post-author">— Written by Eren Şimşek</span
+            >
+<span class="post-read-time">— 3 min read</span
+            >
+</div>
 <span class="post-tags">
-<a href="/tags/">#HTTP #requests #JSON #internet #dataexchange #networking #webprotocols </a>&nbsp;
+<a href="/tags/iot-hacking/">#IoT Hacking</a>&nbsp;
 </span>
 <div class="post-content">
-  Bu yazımda HTTP'nin A'dan Z'ye ne olduğunu ve nasıl çalıştığını anlatmaya çalıştım. Bunu yaparken aynı zamanda örnek kodlarla daha detaylı açıklama yapmaya gayret gösterdim. Ayrıca açıklamasını iyi yapamadığımı düşündüğüm konular için bazı blog/makale önerilerinde bulundum. Keyifli okumalar :)</div>
+Bu makalede IoT Firmware Extraction ile ilgileniyor olacağız. Ele alacağımız firmware&rsquo;ı <a href="https://eren.run/Files/IoT_Hacking/TD-W9970V4.zip">buradan</a> indirebilirsiniz. Extraction için <a href="https://github.com/ReFirmLabs/binwalk/blob/master/INSTALL.md">binwalk</a> kullanacağız. Binwalk Extract&rsquo;inin düzgün çalışması için <code>Dependencies</code> bölümünde ki modülleri indirmeniz gerekmektedir.
+</div>
 <div>
-<a class="read-more button" href="/posts/http.html">Read more →</a>
+<a class="read-more button" href="/posts/iot_hacking_firmware_extraction/">Read more →</a
+            >
 </div>
 </div>
-</div>
-</div>
-
+<div class="pagination">
 <div class="pagination__buttons">
-<span class="button next">
-<a href="/posts/404">
-<span class="button__text">Next Post</span>
-<span class="button__icon">→</span>
-</a>
-</span>
 </div>
 </div>
 </div>
@@ -142,19 +137,38 @@
 <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
 </svg>
 </span>
-<span class="logo__text">mertbingol</span
+<span class="logo__text">eren.run</span
     >
 <span class="logo__cursor"></span>
 </a>
 <div class="copyright">
 <span>Contact me
-<a href="https://twitter.com/mertbingol03" target="_blank" rel="noopener">Mert B.</a></span
+<a href="https://twitter.com/aporlorxl23" target="_blank" rel="noopener">Aporlorxl23</a></span
         >
 </div>
 </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+<script src="js/main.js"></script>
 <script src="js/prism.js"></script>
 </div>
+<style>
+	#pwn {
+	background-image: url('/img/pwn.png');
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	width: 370px;
+	height: 314px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+@media screen and (max-width: 800px) {
+	#pwn {
+		display: none !important;
+	}
+}
+
+</style>
+<div id="pwn"></div>
 </body>
 </html>
