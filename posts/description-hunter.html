@@ -103,35 +103,27 @@ a:hover {
 </div>
 
 <div class="post">
-        <h1 class="post-title"><a href="posts/Veritabanı-Sistemlerinin-Bizlere-Sağladığı-Konfor-ve-Bu-Konfordan-Doğan-Kusurlar.html">Veritabanı Sistemlerinin Bizlere Sağladığı Konfor ve Bu Konfordan Doğan Kusurlar</a></h1>
+        <h1 class="post-title"><a href="/posts/description-hunter.html">OSINT Tool Projem ve Amacı (description-hunter)</a></h1>
         <div class="post-meta">
                 
+            <h3>Neden?</h3>       
+<p>
+    Geçenlerde canım sıkıldı ve YouTube'da takılıyım dedim. YouTube'a girdiğimde ana sayfamda CharmQuell'in bir yayını düştü. Yayın da "SiyahGiyenGenc" adlı bir YouTuber'in gerçek kişiliğini ortaya çıkarıyordu. Bunu yaparken tüm kaynaklarıyla, kanıtlayarak yapıyordu. Velashil, bu Siyah diye hitap edeceğim arkadaş kanıtli bir şekilde söylenen gerçekleri inkar etmeye devam ederken, CharmQuell ve ekibi Siyah'ın YouTube kanalında bir OSINT gerçekleştirdi. Bu OSINT sonucunda Siyah'ın bir videonun açıklama kısmında, Charm'in içerisinde kötü paylaşımlarla dolu bir Facebook hesabının Siyah'a ait olduğu iddası doğrulandı çünkü videonun açıklama kısmında o Facebook hesabının linki vardı. İşin komik kısmı bunlara rağmen Siyah bu iddaları reddediyordu ki artık bir idda değil, bir gerçekti.
+</p>
+<h3>Teknik Kısımlar</h3>
+<p>
+    Bu yazdığım script sayesinde verilen bir YouTube kanalı üzerinde tüm videoların açıklamalarında bulunan linkleri topluyor ve sizlere sunuyor. Bunu yaparken YouTube API'ini kullanıyorum. Bu API sayesinde, YouTube'da bulunan verilere JSON türünde erişebiliyorum. İçerisinden "description" bölümünü çekiyor ve Python'da bulunan regex kütüphanesini kullanarak "description" bölümündeki tüm linkleri arıyor ve ekrana bastırıyourum. Bunu da her bir JSON verisi için döngüye sokuyorum.
 
+</p>
 
-      
+<p>Charmquellin projem hakkindaki cevabi:</p>
+<img src="../imgs/Screenshot from 2023-03-28 22-33-19.png" width="530" height="295">
 
-            <h2>Veritabanlarının Bizlere Sunduğu Konfor</h2>
-            <p>Veritabanları, klasik dosya sistemindeki (Cllasic File Systems) kusurları ortadan kaldırma üzere geliştirilmiş bir teknolojidir. Lakin her teknolojide ve gelişim gösteren herhangi bir şeyde olduğu gibi veritabanları üzerinde de elbet kusurlar bulunuyor. Bu makalede ele alacağımız konu da tam olarak bu olacak: Veritabanı sistemlerinin bizlere sağladığı konfor ve bu konfordan doğan kusurlar.</p>
-            <p>Veritabanları, Cllasic File Systems yapısında bulunan kusurları ortadan kaldırarak bizlere aşağıdaki yararları/konforu sunar:</p>
-              <ul>
-                <li>Data Loops (Veri Tekrarları) ya ortadan kaldırılır ya da en aza indirgenir. Yani database sistemlerinde, data loops gibi lanet bir hususun olması engellenir. Bu sebeple de donanıma olan yük en aza indirgenir ve bu da bizlere yapısal bir performans artışı sunar. Ayrıca, veri tekrarlarının önüne geçildiğinden disk bölümünde daha fazla veri tutulabilmemize olanak sağlar.</li>
-                <hr><li>Data Integrety (Veri Bütünlüğü), yani belirli bir konu ile ilişkili verinin sistemde, farklı noktalarda hep aynı yerde ve aynı şekilde tutulması (çelişkilerin oluşmaması) veri bütünlüğünü sağlayan bir hususdur. Dolayısıyla veritabanları, klasik dosya sistemine göre daha düzgün bir biçimde veri bütünlüğünü sağlayabilir.</li>
-                <hr><li>Waste of Memory Space (Bellek Alanı İsrafı) Veri tekrarları en aza indirgendiğinden mütevellit bellek/disk israfının önüne geçilir.</li>
-                <hr><li>Veritabanlarında, klasik dosya sisteminin aksine standart bir query dilini kullanmak mümkündür. Bu da programcının işine epey bir kolaylık sağlar.</li>
-              
-              </ul>
+<p>Aşağıya, bu tool'un kullanımına dair örnek bir video bıraktım.</p>
 
-              <h2>Konfordan Doğan Kusurlar</h2>
-            <p>Veritabanları her ne kadar işimizi kolaylaştırıp, yukarıda ki sorunları ortadak kaldırıp, bizlere konfor sunsa da bazı durumlarda veri tabanı sistemlerinde de kusurlarla karşılaşabiliyoruz.</p>
-            <p>Veritabanının yapısında bulunan bazı kusurlar: </p>
-            <ul>
-              <li>
-                Bir veritabanı sisteminin kurulum ve bakımı klasik dosya sistemine göre, daha maaliyetli olabilir ki genelde olur .d
-              </li><hr>
-              <li>Veritabanları doğru bir şekilde tasarlanmadığı taktirde, sistem bir bütün olarak ciddi başarısızlıklara sürüklenebilir. Bir veritabanı sistemi birden fazla bileşenden oluştuğundan mütevellit ufak bir tasarım hatası tüm db(Database)  sisteminin bozulmasına sebep olur.</li>
-            </ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FYXtPX0SWgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-            <p>Bu makalem biraz kısa oldu çünkü aslında başka bir makalemin bir bölümü idi. Bir dahaki yazımda (Kapitalizimin firewallar üzerindeki etkisi konulu makalemı bitirdikten sonra) hem Classic-File Sistemine yönelik saldırı türlerini hem de Veritabanlarına yönelik saldırı türlerini uygulamalı bir şekilde açıklıyor olacağım. Akabinde de, hangisinin daha çok güvenlik sağladığına dair bilgi vereceğim, bu konu ile ilgili kısa bir spoiler vermek istiyorum: Secure develop edilmemiş her bir teknoloji temelinde zafiyet barındırır ve güvensizliğe sebep olur. Dolayısıyla kodunuzu düzgün yazdığınız sürece her teknoloji güvenlidir kanısna varılabilir.</p>
+  <p>Github Link: <a href='https://github.com/mertbingol0/description-hunter'>https://github.com/mertbingol0/description-hunter</a></p>
 </div></div></div></div></body></html>
 </div>
 <div class="pagination">
@@ -141,22 +133,28 @@ a:hover {
 <hr />
 </div>
 
+
+
 <div class="pagination__buttons">
   <span class="button previous">
-  <a href="/posts/description-hunter.html">
+  <a href="ara%C5%9Ft%C4%B1rma-nas%C4%B1l-yap%C4%B1l%C4%B1r.html">
   <span class="button__icon">←</span>
-  <span class="button__text">OSINT Tool Projem ve Amacı (description-hunter)</span>
+  <span class="button__text">Araştırma Nasıl Yapılır? - Google Dorkları Nedir...</span>
   </a>
   </span>
 
   <span class="button next">
-  <a href="/posts/klasik-dosya-sisteminin-ölümüne-neden-olan-başlıca-sebepler.html">
-  <span class="button__text">Classic-File Systems (Klasik Dosya Sistemleri)
+  <a href="/posts/Veritabanı-Sistemlerinin-Bizlere-Sağladığı-Konfor-ve-Bu-Konfordan-Doğan-Kusurlar.html">
+  <span class="button__text">Veritabanı Sistemlerinin Bizlere Sağladığı Konfor ve Bu Konfordan Doğan Kusurlar
   </span>
   <span class="button__icon">→</span>
   </a>
   </span>
   </div>
+
+
+
+
 
 
 </div>

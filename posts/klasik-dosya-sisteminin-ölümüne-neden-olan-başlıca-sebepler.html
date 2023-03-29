@@ -103,35 +103,32 @@ a:hover {
 </div>
 
 <div class="post">
-        <h1 class="post-title"><a href="posts/Veritabanı-Sistemlerinin-Bizlere-Sağladığı-Konfor-ve-Bu-Konfordan-Doğan-Kusurlar.html">Veritabanı Sistemlerinin Bizlere Sağladığı Konfor ve Bu Konfordan Doğan Kusurlar</a></h1>
+        <h1 class="post-title"><a href="posts/klasik-dosya-sisteminin-ölümüne-neden-olan-başlıca-sebepler.html">Classic-File Systems (Klasik Dosya Sistemleri)'nin Ölümüne Neden Olan Başlıca Sebepler ve Günümüzdeki Kullanım Alanları</a></h1>    
         <div class="post-meta">
-                
 
+            <p>Klasik Dosya Sistemi, bazı faaliyetler sonucunda toplanan verilerin depolanmasında kullanılan bir yapıdır. Bu sistemin temel özelliği, saklanan veriler ile bu verileri işleme alacak olan programların aynı bilgisayar üzerinde çalışmasıdır. Depolanan verileri kullanacak olan bilgisayar programının, kullanacağı dosyaların yapısı ve dosyalara erişim biçimleri konusunda bilgi sahibi olması gerekir.</p>
+            <p>Veritabanları sayesinde, klasik dosya sistemlerinden tamamen farklı olarak her uygulama için ayrı bir alan tutulması yerine, gereksinim duyulan tüm verilere tek bir veritabanı üzerinden erişim sağlanır.</p>
+            
+            <p>Klasik Dosya Sistemi, günümüzde halen daha kullanılmaktadır. 
+              Küçük verileri saklamak ve sonrasında işleyebilmek adına bu yapı, çok büyük veriler ile 
+              işlemler yapmayan ve verinin önemi düşük oldugu projelerde kullanılabilir. Ama tabii ki sağladığı yönetim biçimi ve modernliği sebebi ile Veritabanları daha çok tercih edilmekte. Bu söz ettiğim firimalar çok küçük bir azınlık. 
+              Ayrıca klasik dosya sistemini kullanan bir teknoloji olarak Excel örnek verilebilir.</p>
+
+            <p>Burada dosya sisteminin nasıl çalıştığına dair örnek bir şema verilmiştir:</p>
+            <img src="https://raw.githubusercontent.com/mertbingol0/mertbingol0.github.io/main/imgs/20230324_143440.jpg" width="550" height="430"> 
+                     
+            <h2>Klasik Dosya Sisteminin Başlıca Kusurları</h2>
+            <h3>Data Loops - Veri Tekrarları</h3>
+            <p>Aynı veri, farklı dosyalar içerisinde tekrar tekarar yer alır. Hem müşteri hem de fatura dosyalarında müşteriye ait verilerin tutulması buna bir örnektir. Kısaca veriler için kategorize edilmiş bir dosya sistemi yoktur.</p>
+            <h3>Multiple Updates - Çoklu Güncelleme</h3>
+            <p>Aynı veri, birden fazla sayıda dosyada barındırıldığından verinin bir dosyada güncellenip, diğer bir dosyada güncellenmemesi veri bütünlüğünün (DATA INTEGRITY) bozumasına sebep olur. Bunun sonucunda bir biri ile çelişen verilerin üretilmesi söz konusu olur.</p>
+            <h3>Waste of Memory Space - Bellek Alanı İsrafı</h3>
+            <p>Aynı veri, çok sayıda dosyada barındırıldığından mütevellit disk üzerinde bir israfa sebep olur. Ayrıca, bir den fazla dosyaya yazma işlemi yapıldığından ram üzerinde de gereksiz bir yük olacaktır.</p>
+            <h3>Access Languages - Erişim Dili</h3>
+            <p>Verilere erişim için bir araç olarak kullandığımız programlama dilleri, genelde kullanım alanı ve amacına göre uygun standartlaştırılmış diller olsa da bu gibi bir yapıda standartlaşmış bir dil söz konusu değildir. Çünkü, uygulamadan uygulamaya göre farklı dillerin kullanılması gerkir. Ve bu da programcının işini epey bir zorlaştıran hususlardan birisidir.</p>
 
       
 
-            <h2>Veritabanlarının Bizlere Sunduğu Konfor</h2>
-            <p>Veritabanları, klasik dosya sistemindeki (Cllasic File Systems) kusurları ortadan kaldırma üzere geliştirilmiş bir teknolojidir. Lakin her teknolojide ve gelişim gösteren herhangi bir şeyde olduğu gibi veritabanları üzerinde de elbet kusurlar bulunuyor. Bu makalede ele alacağımız konu da tam olarak bu olacak: Veritabanı sistemlerinin bizlere sağladığı konfor ve bu konfordan doğan kusurlar.</p>
-            <p>Veritabanları, Cllasic File Systems yapısında bulunan kusurları ortadan kaldırarak bizlere aşağıdaki yararları/konforu sunar:</p>
-              <ul>
-                <li>Data Loops (Veri Tekrarları) ya ortadan kaldırılır ya da en aza indirgenir. Yani database sistemlerinde, data loops gibi lanet bir hususun olması engellenir. Bu sebeple de donanıma olan yük en aza indirgenir ve bu da bizlere yapısal bir performans artışı sunar. Ayrıca, veri tekrarlarının önüne geçildiğinden disk bölümünde daha fazla veri tutulabilmemize olanak sağlar.</li>
-                <hr><li>Data Integrety (Veri Bütünlüğü), yani belirli bir konu ile ilişkili verinin sistemde, farklı noktalarda hep aynı yerde ve aynı şekilde tutulması (çelişkilerin oluşmaması) veri bütünlüğünü sağlayan bir hususdur. Dolayısıyla veritabanları, klasik dosya sistemine göre daha düzgün bir biçimde veri bütünlüğünü sağlayabilir.</li>
-                <hr><li>Waste of Memory Space (Bellek Alanı İsrafı) Veri tekrarları en aza indirgendiğinden mütevellit bellek/disk israfının önüne geçilir.</li>
-                <hr><li>Veritabanlarında, klasik dosya sisteminin aksine standart bir query dilini kullanmak mümkündür. Bu da programcının işine epey bir kolaylık sağlar.</li>
-              
-              </ul>
-
-              <h2>Konfordan Doğan Kusurlar</h2>
-            <p>Veritabanları her ne kadar işimizi kolaylaştırıp, yukarıda ki sorunları ortadak kaldırıp, bizlere konfor sunsa da bazı durumlarda veri tabanı sistemlerinde de kusurlarla karşılaşabiliyoruz.</p>
-            <p>Veritabanının yapısında bulunan bazı kusurlar: </p>
-            <ul>
-              <li>
-                Bir veritabanı sisteminin kurulum ve bakımı klasik dosya sistemine göre, daha maaliyetli olabilir ki genelde olur .d
-              </li><hr>
-              <li>Veritabanları doğru bir şekilde tasarlanmadığı taktirde, sistem bir bütün olarak ciddi başarısızlıklara sürüklenebilir. Bir veritabanı sistemi birden fazla bileşenden oluştuğundan mütevellit ufak bir tasarım hatası tüm db(Database)  sisteminin bozulmasına sebep olur.</li>
-            </ul>
-
-            <p>Bu makalem biraz kısa oldu çünkü aslında başka bir makalemin bir bölümü idi. Bir dahaki yazımda (Kapitalizimin firewallar üzerindeki etkisi konulu makalemı bitirdikten sonra) hem Classic-File Sistemine yönelik saldırı türlerini hem de Veritabanlarına yönelik saldırı türlerini uygulamalı bir şekilde açıklıyor olacağım. Akabinde de, hangisinin daha çok güvenlik sağladığına dair bilgi vereceğim, bu konu ile ilgili kısa bir spoiler vermek istiyorum: Secure develop edilmemiş her bir teknoloji temelinde zafiyet barındırır ve güvensizliğe sebep olur. Dolayısıyla kodunuzu düzgün yazdığınız sürece her teknoloji güvenlidir kanısna varılabilir.</p>
 </div></div></div></div></body></html>
 </div>
 <div class="pagination">
@@ -140,25 +137,18 @@ a:hover {
             >
 <hr />
 </div>
-
 <div class="pagination__buttons">
-  <span class="button previous">
-  <a href="/posts/description-hunter.html">
-  <span class="button__icon">←</span>
-  <span class="button__text">OSINT Tool Projem ve Amacı (description-hunter)</span>
-  </a>
-  </span>
+
 
   <span class="button next">
-  <a href="/posts/klasik-dosya-sisteminin-ölümüne-neden-olan-başlıca-sebepler.html">
-  <span class="button__text">Classic-File Systems (Klasik Dosya Sistemleri)
-  </span>
-  <span class="button__icon">→</span>
-  </a>
-  </span>
-  </div>
+    <a href="/posts/Veritabanı-Sistemlerinin-Bizlere-Sağladığı-Konfor-ve-Bu-Konfordan-Doğan-Kusurlar.html">
+    <span class="button__text">Veritabanı Sistemlerinin Bizlere Sağladığı Konfor ve Bu Konfordan Doğan Kusurlar</span>
+    
+    </a>
+    </span>
 
 
+</div>
 </div>
 </div>
 </div>
