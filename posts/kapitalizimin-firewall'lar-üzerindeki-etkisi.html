@@ -103,29 +103,30 @@ a:hover {
 </div>
 
 <div class="post">
-        <h1 class="post-title"><a href="posts/klasik-dosya-sisteminin-ölümüne-neden-olan-başlıca-sebepler.html">Classic-File Systems (Klasik Dosya Sistemleri)'nin Ölümüne Neden Olan Başlıca Sebepler ve Günümüzdeki Kullanım Alanları</a></h1>    
+        <h1 class="post-title"><a href="posts/kapitalizimin-firewall'lar-üzerindeki-etkisi.html">Kapitalizimin Firewall'lar Üzerindeki Etkisi</a></h1>
+
         <div class="post-meta">
+        <p>Piyasadaki routerların, firewall kullanabilmemiz için donanım ve yazılım kısıtlamaları bulunmakla birlikte daha fazla para kazanma güdüsünün
+            doğurmuş olduğu kapitalizim ruhunun günümüzde firimalar tarafından müşterilerine "firewall kullanmak istiyorsan, bu cihazımı da alman gerekiyor."
+            gibi bir diretmede bulunması söz konusudur.
+        
+        </p>
+        <p>Oysa, Linux gibi bir veli limetin, bizlere böyle bir hizmeti (firewall) sağlıyor oluşundan bir haber ve ya da sırf ücretsiz olduğundan mütevellit tercih edilmemesi sebebi ile firimalar,
+        firewall hizmetinden yararlanmak adına binlerce dolar heba etmekte.
+    </p>
+    
+    <p>
+        Bu cihazları almak için heba ettikleri binlerce doları bir kenara bırakmakla birlikte aldıkları donanımların kurulumu ve yönetimi için de network'cü çalışanlarını ayrı bir zorluğa ve yeni bir öğrenim sürecine ittikleri bir gerçektir.
+    </p>
+    <p>
+        Bu gibi bir durumda tabii ki de düzgün bir firewall yapılandırılması ve de kısıtlamalarının ayarlanması hususunda epey bir hata ve gözden kaçırılan şeylerin olabilitesi yükselmekte. Bu olabitenin yükselmesi demek, firimanızın, kötü niyetli hackerlar tarafından yapılan saldırılar karşısında firewalların hiç bir işe yaramaması, o cihazlar için harcadığınız binlerce doları çöpe atmanız demektir.
+    </p>
 
-            <p>Klasik Dosya Sistemi, bazı faaliyetler sonucunda toplanan verilerin depolanmasında kullanılan bir yapıdır. Bu sistemin temel özelliği, saklanan veriler ile bu verileri işleme alacak olan programların aynı bilgisayar üzerinde çalışmasıdır. Depolanan verileri kullanacak olan bilgisayar programının, kullanacağı dosyaların yapısı ve dosyalara erişim biçimleri konusunda bilgi sahibi olması gerekir.</p>
-            <p>Veritabanları sayesinde, klasik dosya sistemlerinden tamamen farklı olarak her uygulama için ayrı bir alan tutulması yerine, gereksinim duyulan tüm verilere tek bir veritabanı üzerinden erişim sağlanır.</p>
-            
-            <p>Klasik Dosya Sistemi, günümüzde halen daha kullanılmaktadır. 
-              Küçük verileri saklamak ve sonrasında işleyebilmek adına bu yapı, çok büyük veriler ile 
-              işlemler yapmayan ve verinin önemi düşük oldugu projelerde kullanılabilir. Ama tabii ki sağladığı yönetim biçimi ve modernliği sebebi ile Veritabanları daha çok tercih edilmekte. Bu söz ettiğim firimalar çok küçük bir azınlık. 
-              Ayrıca klasik dosya sistemini kullanan bir teknoloji olarak Excel örnek verilebilir.</p>
+    <p>Halbuki, Linux ve türevi sistemlerde, firewall hizmetini ücretsiz, kolay ve daha güvenli bir şekilde alabiliyorsunuz.
+        Ki zaten bunu bilen tek kişi ben değilim. Çalışanlarınız ve belki de siz bile bunun farkındasınızdır. Ama umrunuzda değil, parayı basar alırım krdsm kafası var sizlerde.
+    </p>
+    <p>Ayrıca, her Linux dağıtımı ile beraber gelen ve piyasada bulunan kapitalist firewall üreticilerinin, üretmiş oldukları bu cihazlardan daha iyi bir performans ve de konfor sağlayan firewall yazılımları kullanıma hazır bir şekilde kullanıcıya sunulmaktadır: netfilter/iptables (eğitimi gelecek)</p>
 
-            <p>Burada dosya sisteminin nasıl çalıştığına dair örnek bir şema verilmiştir:</p>
-            <img src="https://raw.githubusercontent.com/mertbingol0/mertbingol0.github.io/main/imgs/20230324_143440.jpg" width="550" height="430"> 
-                     
-            <h2>Klasik Dosya Sisteminin Başlıca Kusurları</h2>
-            <h3>Data Loops - Veri Tekrarları</h3>
-            <p>Aynı veri, farklı dosyalar içerisinde tekrar tekarar yer alır. Hem müşteri hem de fatura dosyalarında müşteriye ait verilerin tutulması buna bir örnektir. Kısaca veriler için kategorize edilmiş bir dosya sistemi yoktur.</p>
-            <h3>Multiple Updates - Çoklu Güncelleme</h3>
-            <p>Aynı veri, birden fazla sayıda dosyada barındırıldığından verinin bir dosyada güncellenip, diğer bir dosyada güncellenmemesi veri bütünlüğünün (DATA INTEGRITY) bozumasına sebep olur. Bunun sonucunda bir biri ile çelişen verilerin üretilmesi söz konusu olur.</p>
-            <h3>Waste of Memory Space - Bellek Alanı İsrafı</h3>
-            <p>Aynı veri, çok sayıda dosyada barındırıldığından mütevellit disk üzerinde bir israfa sebep olur. Ayrıca, bir den fazla dosyaya yazma işlemi yapıldığından ram üzerinde de gereksiz bir yük olacaktır.</p>
-            <h3>Access Languages - Erişim Dili</h3>
-            <p>Verilere erişim için bir araç olarak kullandığımız programlama dilleri, genelde kullanım alanı ve amacına göre uygun standartlaştırılmış diller olsa da bu gibi bir yapıda standartlaşmış bir dil söz konusu değildir. Çünkü, uygulamadan uygulamaya göre farklı dillerin kullanılması gerkir. Ve bu da programcının işini epey bir zorlaştıran hususlardan birisidir.</p>
 
       
 
@@ -137,25 +138,16 @@ a:hover {
             >
 <hr />
 </div>
+
 <div class="pagination__buttons">
-
-
   <span class="button previous">
-    <a href="/posts/Veritabanı-Sistemlerinin-Bizlere-Sağladığı-Konfor-ve-Bu-Konfordan-Doğan-Kusurlar.html">
-    <span class="button__text">Veritabanı Sistemlerinin Bizlere Sağladığı Konfor ve Bu Konfordan Doğan Kusurlar</span>
-    
-    </a>
-    </span>
-
-    <span class="button next">
-      <a href="/posts/kapitalizimin-firewall'lar-üzerindeki-etkisi.html">
-      <span class="button__text">Kapitalizimin Firewall'lar Üzerindeki Etkisi</span>
-      
-      </a>
-      </span>
+  <a href="/posts/klasik-dosya-sisteminin-ölümüne-neden-olan-başlıca-sebepler.html">
+  <span class="button__icon">←</span>
+  <span class="button__text">Classic-File Systems (Klasik Dosya Sistemleri)</span>
+  </a>
+  </span>
 
 
-</div>
 </div>
 </div>
 </div>
