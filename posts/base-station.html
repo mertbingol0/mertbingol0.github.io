@@ -1,0 +1,249 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+        Mert Bingöl
+        | Cyber Security Blog
+      </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/" />
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="shortcut icon" href="/img/favicon.png" />
+<link href="../fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="../fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Posts" />
+<meta name="twitter:description" content="" />
+<meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/posts/" /><meta property="og:site_name" content="Mert Bingöl" />
+</head>
+<body class="dark-theme">
+<div class="container">
+<header class="header">
+<span class="header__inner">
+<a href="/" class="logo" style="text-decoration: none;">
+<span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+<path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+<span class="logo__text">mertbingol</span
+    >
+<span class="logo__cursor"></span>
+</a>
+<span class="header__right">
+<nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+                <li><a href="/about">About</a></li>
+                <li><a href="/achievements">Achievements</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="/Resume.pdf">Resume</a></li>
+                </ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href="/about">About</a></li>
+<li><a href="/achievements">Achievements</a></li>
+<li><a href="/archive">Archive</a></li>
+<li><a href="/Resume.pdf">Resume</a></li>
+</ul>
+</nav>
+<span class="menu-trigger">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M0 0h24v24H0z" fill="none" />
+<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+</svg>
+</span>
+<span class="theme-toggle">
+<svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
+</svg>
+</span>
+</span>
+</span>
+</header>
+<style>
+
+img.dairefoto {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+
+  }
+
+  img.center {
+  display: block;
+  
+  margin-right: 50%;
+  margin-top: 3%;
+  margin-bottom: 0%;
+}
+
+a:hover {
+  color: rgba(0, 145, 138, 0.795);
+}
+</style>
+
+<img src="https://raw.githubusercontent.com/mertbingol0/mertbingol0.github.io/main/imgs/IMG_0323.jpg" width="175" height="215" class="dairefoto center" /> 
+<div class="post-content post on-list">
+  Merhaba, ben Mert. 17 yaşındayım ve gereğinden fazla meraklı bir kişiliğimle birlikte, iyi bir programcı ve hacker olma gayesinde olan bir vatandaşım. Hakkımda bilmeniz gereken her şeyi açıkladığım bu sayfaya göz atabilirsiniz => <a href="/about">About</a>
+</div>
+
+<div class="post">
+        <h1 class="post-title"><a href="posts/kapitalizimin-firewall'lar-üzerindeki-etkisi.html"></a>Telekomunikasyon Güvenliği: Bir Baz İstasyonu Nasıl Çalışır ve Fake Station Hususları - #1</h1>
+
+        <div class="post-meta">
+            <p>Bu yazımda birini aradığınızda arka tarafta ne gibi işlemler döndüğünü a’dan z’ye açıklama gayretinde bulundum. Yazının içeriğine değinip cağrı süreçlerini anlatmaya başlayalım. Ardından, part 2'de bir çağrının nasıl dinlenebileceğiyle ilgili hususlara değineceğim.</p>
+            <h3>Table of Contents</3>
+                <ul>
+                    <li>CID Nedir, Nasıl Çalışır?</li>
+                    <li>CID Kapsamına Giriş Yapıldığında Yaşanan Olaylar</li>
+                    <li>IMEI ve IMSI Nedir?</li>
+                    <li>Kanal Tahsis Edilmesi</li>
+                    <li>İletisim Özelinde Güvenlik</li>
+                    <li>Çağrı Yönlendirme</li>
+                </ul>
+            <h2>CID Nedir?</h2>
+            <p>CID (Cell ID), hücre kimliği anlamına gelmektedir. "Hücre" sözcüğünün bize pek bir şey çağrıştırmadığının farkındayım. Bu sebeple öncelikle "hücre"nin tanımlamasını yapalım. (Hücre olarak kullanılan terim "Cell id"dir ve yazımızın devamında bu hususa "Cell ID" veya "CID" şeklinde değineceğiz).</p>
+            <p>CID, kısaca bir baz istasyonunun sinyal cinsinden kapsadığı coğrafi konumu ifade etmektedir. Bir baz istasyonunun CID kapsamından çıktığınız takdirde başka bir baz istasyonunun CID kapsamına girmiş olursunuz. Zaten bunun tersi bir durumda yani herhangi bir kapsamı olmayan bir konumdaysanız, bir baz istasyonuna bağlanamayacağınızdan mütevellit hattınız hiç çekmeyecektir.</p>
+            <p>Aşağıdaki şemada 3 adet baz istasyonunun kapsadığı alan ve ilgili cihazın bağlı olduğu baz istasyonunun (Cell0) kapsama alanından yani CID'sinden çıkış yaptığı anda Cell2 adlı baz istasyonunun CID kapsamına gireceği görülmektedir:</p>
+            <p>Bu noktada yukarıda da anlattığım gibi ilgili kapsam içerisindeki baz istasyonuna bağlanılır. Aynı konumda ve aynı kapsamda birden fazla baz istasyonu varsa en güçlü bağlantıyı hangisi sağlıyorsa onunla iletişim sağlanır.</p>
+            <p>Şu ana kadar öğrendiklerimize bakıldığında ofansif tarafta bu bilgileri kullanabileceğimiz bir örnek senaryo oluşturalım:</p>
+            <p>Eğer biz sahte bir istasyon oluşturmak istiyorsak, bunun ilgili cihazın kapsamı içerisinde bulunan baz istasyonlarından daha iyi bir sinyal gücünde olması gerekir. Böylece ilgili cihaz, baz istasyonu ihtiyacını giderebilmek adına bizi tercih edebilir. Bizi tercih ettiği noktada ise artık o cihaza gelen ve o cihazdan çıkan tüm bilgileri alabiliyor oluruz. Bir nevi MITM (Man-in-the-Middle) ve evil twin saldırıları gibi bir yapıdadır denebilir.</p>
+            <p>Fake bir istasyon oluşturma hususlarına değinmeden önce, normal bir baz istasyonuna bağlanan bir cihazın bağlantı sağlandığı takdirde baz tarafında neler olduğunu anlatmak istiyorum.</p>
+
+            <h2>CID Kapsamına Giriş Yapıldığında Yaşanan Olaylar</h2>
+            <p>Bir cihazın baz istasyonuna bağlanabilmesi adına öncelikle bir CID kapsamında olması gerekir. Ve CID kapsamında olduğu anda baz istasyonları ilgili cihazın sinyal isteğini duyar ve istenen bağlantı sağlanıp o cihaza uygun sinyaller yönlendirilmiş olur. Yani cihazımızın sürekli olarak bir yayında bulunduğunu ve bu yayın sonucunda baz istasyonlarının onun bağlantı talebine cevap vermesi gibi bir durumu düşünmemiz yanlış olmaz.</p>
+            <p>Şu ana kadar senaryomuzda cihazımız CID kapsamına girdi ve uygun bir baz istasyonuyla iletişime geçti. Şimdi ise bu iletişime geçme süreçlerine değinelim.</p>
+            <h3>Cihaz Kimliginin Dogrulanmasi</h3>
+            <p>Baz istasyonlarinin bagli olan bir cihaza ozel sinyalleri yonlendirebilmesi icin o cihazi tanimlayabildigi bir degere ihtiyac duyar. Bu noktada da devreye IMEI ve IMSI degerleri girer. Bu degerler sayesinde kimlik dogrulama islemi yapilir ve o cihaza ozel olan sinyaller bu degerler uzerinden yonlendirilir.</p>
+            <h2>IMEI ve IMSI Nedir?</h2>
+            <p>IMEI çoğunuzun yabancı olmadığı bir tanım olabilir. IMEI cihazlarınızı tanımlayan belirli bir formattaki numaralardır. Baz istasyonu tarafından gerçekleştirilen bir doğrulama işlemi aşağıdaki adımları içerir:</p>
+            <ul>
+                <li>IMEI kontrol listesi: Baz istasyonunda, IMEI numaralarının tutulduğu bir kontrol listesi bulunur. Bu liste, geçerli ve güvenilir IMEI numaralarını içerir.</li>
+                <li>IMEI Doğrulama İsteği: Cihazın bağlanma talebi üzerine baz istasyonu IMEI numarasını kontrol edebilmek için bir doğrulama isteği gönderir (bu istek kayıtlı olan IMEI kontrol listesine gönderilir). Bu istek, mesaj başlığı yani header, IMEI numarası ve isteğe bağlı birkaç ek bilgi içerir.</li>
+
+            </ul>
+            <p>Örnek bir IMEI kontrol isteği aşağıdaki gibidir:</p>
+<pre><code class="highlight language-js">GSM Header: 03ABCD
+IMEI: 354489026954123</code></pre>
+
+    <p>IMEI üzerinde gerçekleştirilen doğrulama işlemleri bu şekildeydi. Şimdi ise IMSI üzerinde gerçekleştirilen doğrulama işlemlerine göz atalım.</p>
+    <p>IMSI bir mobil abonenin (Turkcell, Vodafone vb.) benzersiz tanımlayıcısıdır ve bu değer SIM kartın içerisinde tutulur. IMSI doğrulama, baz istasyonu ve mobil ağ arasında gerçekleşir. IMSI doğrulama işlemi aşağıdaki adımları içermektedir:</p>
+    <p>SIM kartından IMSI Okuma: Baz istasyonu, cihaza bağlı olan SIM karttan IMSI numarasını okur. Bunun için uygun bir istek gönderilir.</p>
+    <p>Örnek IMSI Okuma İsteği:</p>
+<pre><code class="highlight language-js">APDU Komutu: 00A40004023F00</code></pre>
+      <p>Yukarıdaki örnekte, APDU (Application Protocol Data Unit) komutu kullanılarak IMSI okuma isteği gönderildiği varsayılmıştır. Bu komut, SIM karttan IMSI numarasını okumak için kullanılır. (Gerçek bir IMSI okuma isteği daha karmaşık olabilir ve kullanılan protokole ve SIM kartın özelliklerine bağlı olarak değişebilir.)</p>
+      <ul>
+        <li>IMSI Doğrulama Talebi: Baz istasyonu, bağlantı isteğini mobil ağa ileterek IMSI doğrulama sürecini başlatır. Ardından cihaz, IMSI doğrulama isteğini alır ve SIM kart üzerinde depolanan IMSI numarasını içeren bir cevap gönderir. (Bu kontroller arasında IMSI'nın doğru formatı, kayıtlı bir aboneye ait olması ve geçerli bir IMSI olması gibi kriterler yer alabilir.)</li>
+        <li>Doğrulama Sonucu: Mobil ağ (baz istasyonlarının oluşturduğu network), IMSI doğrulama sürecinin sonucunu belirler. Eğer IMSI doğrulaması başarılı ise, abonenin kimlik bilgileri doğrulanmış olarak kabul edilir ve ağa erişime izin verilir. Eğer IMSI doğrulaması başarısız ise, abonenin kimlik bilgileri doğrulanmamış olarak kabul edilir ve ağa erişim engellenir.</li>
+    </ul>
+<p>NOT: IMSI doğrulama isteği, mobil ağın abonelerin kimliklerini doğrulamak ve yetkisiz erişimleri engellemek için kullandığı önemli bir güvenlik mekanizmasıdır. Abonenin IMSI numarası, SIM kart tarafından sağlanır ve mobil ağ tarafından doğrulanır. Bu süreç, güvenli bir abonelik yönetimi ve hizmet sağlanması için kritik bir adımdır.</p>
+
+<h2>Kanal Tahsis Edilmesi</h2>
+<p>Kanal tahsisi, telekomünikasyon sistemlerinde baz istasyonları tarafından cihazlara iletişim için kullanılacak uygun bir kanalın atanması işlemidir. Bu süreç, sesli veya veri iletimi için kullanılan frekans bantının veya zaman diliminin belirlenmesini içerir.</p>
+<p>Bir baz istasyonu, çevresindeki cihazlara hizmet verebilmek için belirli bir frekans bandı veya zaman dilimi aralığına sahiptir. İletişim ihtiyaçlarına bağlı olarak, baz istasyonu bu bandın içinden uygun bir kanalı seçer ve cihaza tahsis eder. Kanal seçimi, baz istasyonunun yoğunluğu, iletişim kalitesi, frekans planlaması ve diğer faktörler dikkate alınarak yapılır.</p>
+<p>Kanal tahsisi, baz istasyonunun yönetiminde gerçekleşir ve istasyonlar arasında koordinasyon gerektirebilir. Baz istasyonları, kanal tahsisi sürecini optimize etmek için frekans planlaması ve yönetim algoritmalarını kullanır. Bu algoritmalar, iletişim trafiğini dengelemek, çakışmaları önlemek ve bant genişliğini verimli bir şekilde kullanmak için tasarlanmıştır.</p>
+<p>Sonuç olarak, kanal tahsisi telekomünikasyon sistemlerinde önemli bir adımdır. Doğru kanal tahsisi, iletişim kalitesini artırır, çakışmaları önler ve etkin bir iletişim sağlar.</p>
+
+<h3>İletisim Özelinde Güvenlik</h3>
+<p>Güvenlik protokolleri, telekomünikasyon sistemlerinde iletişimin güvenliğini sağlamak amacıyla kullanılan protokol ve algoritmalardır. Baz istasyonları, iletişimin gizliliğini ve bütünlüğünü korumak için güvenlik protokollerini uygular. İşte güvenlik protokollerinin temel bileşenleri:</p>
+<ul>
+    <li>Şifreleme: Güvenlik protokolleri, iletişimin şifrelenmesi yoluyla gizliliğini sağlar. Şifreleme, iletilen verilerin anlaşılması zor hale getirilmesi işlemidir. Baz istasyonu ve cihaz arasında veri iletimi gerçekleşirken, şifreleme algoritması kullanılarak veriler şifrelenir ve yalnızca doğru anahtarla çözülebilir hale gelir. Örnek olarak, GSM (Global System for Mobile Communications) standardı, A5 şifreleme algoritması ve SIM kartları üzerindeki güvenlik özellikleriyle güvenli iletişimi sağlamak için tasarlanmıştır.</li>
+    <li>Anahtar Yönetimi: Güvenlik protokollerinde, güvenlik anahtarları kullanılarak şifreleme ve çözme işlemleri gerçekleştirilir. İletişimin başlatılması için baz istasyonu ve cihaz arasında güvenlik anahtarları paylaşılır. Bu anahtarlar, şifreleme ve çözme işlemlerinde kullanılır ve iletişimin gizliliğini sağlamak için güvenli bir şekilde paylaşılması ve yönetilmesi gereken kritik bileşenlerdir.</li>
+    <li>Kimlik Doğrulama: Güvenlik protokolleri, iletişen tarafların kimliklerini doğrulamayı sağlar. Kimlik doğrulama, bir cihazın veya kullanıcının kimliğini belirlemek ve yetkilendirilmiş bir şekilde iletişim yapmasını sağlamak amacıyla gerçekleştirilir. Bu işlem, güvenlik açıklarını önlemek ve yetkisiz erişimi engellemek için önemlidir. </li>
+</ul>
+<p>Iletişim sırasında A5 sifrelemesinin nasıl çalıstığına dair örnek bir senaryo oluşturalım ve neler olduğunu görelim:</p>
+<p>Senaryo: A ve B kullanıcılarımız, güvenli bir şekilde birbirleriyle iletişim kurmak istiyorlar. İletişimleri, baz istasyonu üzerinden gerçekleşiyor ve A5 algoritması kullanılarak şifreleniyor.</p>
+
+<pre><code class="highlight language-js">from Crypto.Cipher import ARC4
+
+    def a5_encrypt(key, plaintext):
+        cipher = ARC4.new(key)
+        ciphertext = cipher.encrypt(plaintext)
+        return ciphertext
+    
+    def a5_decrypt(key, ciphertext):
+        cipher = ARC4.new(key)
+        plaintext = cipher.decrypt(ciphertext)
+        return plaintext
+    
+    # Anahtar oluşturma
+    key = b"0123456789ABCDEF"  # 16 byte anahtar (128 bit)
+    
+    # İletilecek veri
+    veri = b"Merhaba, nasılsınız?"
+    
+    # Cihaz A, veriyi şifreleyerek gönderiyor
+    sifreli_veri = a5_encrypt(key, veri)
+    print("Cihaz A'dan Şifrelenmiş Veri:", sifreli_veri)
+    
+    # Cihaz B, alınan şifreli veriyi çözüyor
+    cozulmus_veri = a5_decrypt(key, sifreli_veri)
+    print("Cihaz B'de Çözülmüş Veri:", cozulmus_veri.decode())</code></pre>
+
+<p>A5 algoritması (ARC4) kullanılarak şifreleme ve çözme işlemleri gerçekleştirilmektedir. İki cihaz arasında güvenli bir iletişim sağlamak için aynı anahtar kullanılır. Cihaz A, veriyi şifreler ve şifreli veriyi cihaz B'ye gönderir. Cihaz B, aldığı şifreli veriyi çözerek orijinal metni elde eder.</p>
+<p>Bu sadece bir örnek olup, gerçek uygulamalar için daha karmaşık güvenlik protokollerini ve algoritmalarını dikkate almanız önemlidir. Ayrıca, güvenli anahtar paylaşımı ve anahtar yönetimi gibi diğer güvenlik önlemlerini de göz önünde bulundurmanız gerekebilir.</p>
+
+<h2>Cağrı Yönlendirme</h2>
+<p>Çağrı yönlendirme, telekomünikasyon sistemlerinde bir çağrının hedef cihaza doğru yönlendirilmesini sağlayan bir işlemdir. Bu işleme örnek olarak; Bir numarayı aradığınızda “cağrı yönlendiriliyor” gibi bir çıktı alırsınız. İşte bu çıktının verilme sebebi hedef cihaza yönlendiriliyor olmanızdır.</p>
+<p>İletişim kurmak isteyen bir kullanıcı, hedef cihazı aradığında, çağrı isteği önce bulunduğu konumdaki en yakın baz istasyonuna iletilir. Ardından baz istasyonu, çağrının hedef cihazın bulunduğu baz istasyonuna yönlendirilmesini sağlar. Tabii bu tek bir yönlendirmedir hedefin daha uzak olduğu durumlarda yönlendirme işlemi birden fazla baz istasyonu arasında gerçekleşir. İletişimin hedef cihaza doğru yönlendirilmesi ve istenilen cihaza ulaşması sonucunda da çağrı isteği tamamlanmış olur ve bu noktada iletişim başlar.</p>
+
+</div></div></div></div></body></html>
+</div>
+<div class="pagination">
+<div class="pagination__title">
+<span class="pagination__title-h">Read other posts</span
+            >
+<hr />
+</div>
+
+<div class="pagination__buttons">
+  <span class="button previous">
+  <a href="/posts/klasik-dosya-sisteminin-ölümüne-neden-olan-başlıca-sebepler.html">
+  <span class="button__icon">←</span>
+  <span class="button__text">Classic-File Systems (Klasik Dosya Sistemleri)</span>
+  </a>
+  </span>
+
+
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="footer__inner">
+<a href="/" class="logo" style="text-decoration: none;">
+<span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+<path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+<span class="logo__text">mertbingol</span
+    >
+<span class="logo__cursor"></span>
+</a>
+<div class="copyright">
+<span>Contact me
+<a href="https://twitter.com/mertbingol03" target="_blank" rel="noopener">Mert B.</a></span
+        >
+</div>
+</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../js/main.js"></script>
+<script src="../js/prism.js"></script>
+</div>
+</body>
+</html>
