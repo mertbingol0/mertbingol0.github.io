@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OYLA! — UI/UX Tasarım Dosyası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0B0416;
+  --panel:#190A2E;
+  --panel-2:#241041;
+  --ink:#04010A;
+  --pink:#FF2D78;
+  --yellow:#FFD23F;
+  --cyan:#34E5FF;
+  --white:#F4EEFF;
+  --dim:#8B7BA8;
+  --win:#4BE38A;
+  --px:'Press Start 2P', monospace;
+  --ui:'Space Grotesk', system-ui, sans-serif;
+  --mono:'Space Mono', monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--white);font-family:var(--ui);
+  background-image:radial-gradient(circle at 20% -10%,#2A0E4D 0%,transparent 55%),
+                   radial-gradient(circle at 90% 5%,#3D0A2A 0%,transparent 45%);
+  background-attachment:fixed;padding:0 0 120px}
+a{color:var(--cyan)}
+
+/* ---------- doc chrome ---------- */
+.wrap{max-width:1360px;margin:0 auto;padding:0 32px}
+.masthead{padding:72px 0 48px;border-bottom:4px solid var(--ink)}
+.logo{font-family:var(--px);font-size:44px;line-height:1.2;color:var(--yellow);
+  text-shadow:5px 5px 0 var(--pink), 10px 10px 0 var(--ink)}
+.tagline{font-family:var(--mono);color:var(--cyan);margin-top:26px;font-size:14px;letter-spacing:.06em}
+.masthead p{color:var(--dim);max-width:640px;margin-top:14px;line-height:1.6;font-size:15px}
+.sec{padding:72px 0 8px}
+.sec-no{font-family:var(--px);font-size:12px;color:var(--pink)}
+.sec h2{font-family:var(--px);font-size:19px;margin:14px 0 10px;line-height:1.5}
+.sec p.note{color:var(--dim);max-width:720px;line-height:1.65;font-size:15px}
+.gallery{display:flex;flex-wrap:wrap;gap:44px 40px;margin-top:40px;align-items:flex-start}
+.unit{width:390px}
+.cap{font-family:var(--mono);font-size:12px;color:var(--cyan);margin-top:14px;letter-spacing:.05em}
+.cap b{color:var(--yellow);font-weight:700}
+.cap span{display:block;color:var(--dim);margin-top:5px;line-height:1.6;letter-spacing:0;font-family:var(--ui)}
+
+/* ---------- phone ---------- */
+.phone{width:390px;height:844px;background:var(--void);position:relative;overflow:hidden;
+  border:5px solid var(--ink);border-radius:26px;box-shadow:9px 9px 0 rgba(255,45,120,.55)}
+.phone::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:60;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.20) 0 1px,transparent 1px 3px)}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:26px;
+  background:var(--ink);border-radius:0 0 14px 14px;z-index:50}
+.statusbar{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 18px;font-family:var(--mono);font-size:11px;color:var(--white);z-index:45}
+
+/* ---------- photo placeholders ---------- */
+.ph{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ph::before{content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 10px,transparent 10px 20px)}
+.ph i{font-style:normal;font-family:var(--px);font-size:34px;color:rgba(255,255,255,.62);z-index:2;
+  text-shadow:3px 3px 0 rgba(0,0,0,.45)}
+.ph em{position:absolute;bottom:14px;left:14px;font-style:normal;font-family:var(--mono);
+  font-size:10px;color:rgba(255,255,255,.55);z-index:2;letter-spacing:.08em}
+.ph-a{background:#3E2B6B}
+.ph-b{background:#6B2B4A}
+.ph-c{background:#2B5A6B}
+.ph-d{background:#6B5A2B}
+.dim{filter:saturate(.12) brightness(.45)}
+
+/* ---------- feed ---------- */
+.feed{position:absolute;inset:0}
+.split-v{position:absolute;inset:0;display:flex}
+.split-v>.ph{width:50%;height:100%}
+.split-h{position:absolute;inset:0;display:flex;flex-direction:column}
+.split-h>.ph{width:100%;height:50%}
+.div-v{position:absolute;top:0;bottom:0;left:50%;width:8px;transform:translateX(-50%);
+  background:var(--ink);border-left:2px solid var(--pink);border-right:2px solid var(--pink);z-index:12}
+.div-h{position:absolute;left:0;right:0;top:50%;height:8px;transform:translateY(-50%);
+  background:var(--ink);border-top:2px solid var(--pink);border-bottom:2px solid var(--pink);z-index:12}
+
+.qcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:20;
+  display:flex;flex-direction:column;align-items:center;gap:10px;width:330px}
+.vs{width:62px;height:62px;background:var(--yellow);border:4px solid var(--ink);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-family:var(--px);font-size:16px;color:var(--ink);
+  box-shadow:5px 5px 0 var(--pink)}
+.qbadge{background:var(--ink);border:4px solid var(--yellow);padding:13px 16px;text-align:center;
+  font-family:var(--px);font-size:11px;line-height:1.75;color:var(--white);box-shadow:5px 5px 0 var(--pink);
+  max-width:330px}
+
+.hud{position:absolute;top:52px;left:0;right:0;display:flex;justify-content:space-between;
+  padding:0 16px;z-index:25}
+.chip{background:var(--ink);border:3px solid var(--cyan);padding:6px 10px;font-family:var(--mono);
+  font-size:10px;color:var(--cyan);letter-spacing:.08em}
+.chip.warm{border-color:var(--yellow);color:var(--yellow)}
+
+.hint{position:absolute;left:0;right:0;bottom:112px;text-align:center;z-index:22;
+  font-family:var(--mono);font-size:11px;color:rgba(244,238,255,.72);letter-spacing:.1em}
+
+/* ---------- bottom nav ---------- */
+.nav{position:absolute;left:0;right:0;bottom:0;height:86px;background:var(--ink);
+  border-top:4px solid var(--pink);display:flex;align-items:center;justify-content:space-around;z-index:40}
+.nav b{font-family:var(--mono);font-size:10px;display:block;margin-top:6px;letter-spacing:.06em;font-weight:400}
+.nav div{color:var(--dim);text-align:center;width:88px}
+.nav div.on{color:var(--yellow)}
+.nav .glyph{font-family:var(--px);font-size:14px}
+.create{width:66px;height:66px;background:var(--pink);border:4px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;font-family:var(--px);font-size:22px;
+  color:var(--white);box-shadow:0 0 0 4px var(--yellow);margin-top:-22px}
+
+/* ---------- result overlay ---------- */
+.overlay{position:absolute;inset:0;background:rgba(11,4,22,.86);z-index:35;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.big-pct{font-family:var(--px);font-size:66px;color:var(--pink);
+  text-shadow:6px 6px 0 var(--ink), 12px 12px 0 var(--yellow);letter-spacing:-2px}
+.verdict{font-family:var(--px);font-size:13px;color:var(--yellow);line-height:1.9;text-align:center}
+.verdict.cold{color:var(--cyan)}
+.tally{width:260px;height:26px;border:4px solid var(--ink);background:var(--panel);display:flex;margin-top:8px}
+.tally .a{background:var(--pink)}
+.tally .b{background:var(--cyan)}
+.metaline{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em}
+
+/* ---------- generic screen furniture ---------- */
+.pad{position:absolute;top:44px;left:0;right:0;bottom:0;padding:18px 18px 0;overflow:hidden}
+.h-title{font-family:var(--px);font-size:15px;line-height:1.6;color:var(--white)}
+.h-sub{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;letter-spacing:.06em}
+.card{background:var(--panel);border:4px solid var(--ink);box-shadow:5px 5px 0 rgba(255,45,120,.5);padding:14px}
+.btn{display:block;width:100%;text-align:center;font-family:var(--px);font-size:12px;padding:16px 10px;
+  border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.btn-y{background:var(--yellow);color:var(--ink)}
+.btn-p{background:var(--pink);color:var(--white)}
+.btn-ghost{background:transparent;border-color:var(--dim);color:var(--dim);box-shadow:none}
+.field{background:var(--void);border:4px solid var(--cyan);padding:14px;font-family:var(--mono);font-size:13px;color:var(--white)}
+.counter{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:right;margin-top:8px;letter-spacing:.08em}
+.tag{display:inline-block;border:3px solid var(--dim);color:var(--dim);font-family:var(--mono);font-size:10px;
+  padding:6px 10px;margin:0 8px 8px 0;letter-spacing:.06em}
+.tag.on{border-color:var(--yellow);color:var(--ink);background:var(--yellow)}
+.stepdots{display:flex;gap:6px;justify-content:center;margin-top:auto}
+.stepdots i{width:34px;height:6px;background:var(--panel-2);display:block}
+.stepdots i.on{background:var(--yellow)}
+.footer-slot{position:absolute;left:18px;right:18px;bottom:26px}
+
+/* stat bar */
+.statbar{height:44px;border:4px solid var(--ink);display:flex;background:var(--panel)}
+.statbar .a,.statbar .b{display:flex;align-items:center;font-family:var(--px);font-size:12px;padding:0 10px}
+.statbar .a{background:var(--pink);color:var(--white)}
+.statbar .b{background:var(--cyan);color:var(--ink);justify-content:flex-end}
+.kpi{display:flex;gap:10px;margin-top:14px}
+.kpi div{flex:1;background:var(--panel);border:4px solid var(--ink);padding:12px 10px}
+.kpi b{display:block;font-family:var(--px);font-size:17px;color:var(--yellow)}
+.kpi span{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.08em;display:block;margin-top:8px}
+.spark{display:flex;align-items:flex-end;gap:4px;height:96px;margin-top:14px}
+.spark i{flex:1;background:var(--pink);display:block;border:2px solid var(--ink)}
+
+/* profile */
+.avatar{width:74px;height:74px;background:var(--panel-2);border:4px solid var(--yellow);
+  display:flex;align-items:center;justify-content:center;font-family:var(--px);font-size:20px;color:var(--yellow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.mini{height:112px;border:4px solid var(--ink);display:flex}
+.mini .ph{width:50%;height:100%}
+.tabs{display:flex;gap:0;margin-top:16px;border:4px solid var(--ink)}
+.tabs b{flex:1;text-align:center;font-family:var(--px);font-size:9px;padding:12px 4px;
+  background:var(--panel);color:var(--dim);font-weight:400}
+.tabs b.on{background:var(--yellow);color:var(--ink)}
+
+/* token swatches */
+.tokens{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.sw{width:168px;border:4px solid var(--ink);box-shadow:5px 5px 0 rgba(0,0,0,.6)}
+.sw div{height:76px}
+.sw p{background:var(--ink);padding:10px;font-family:var(--mono);font-size:10px;line-height:1.7;color:var(--white)}
+.sw p b{color:var(--yellow);display:block;font-weight:400}
+.typerow{margin-top:34px;border-left:5px solid var(--pink);padding-left:22px}
+.typerow>div{margin-bottom:22px}
+.typerow small{font-family:var(--mono);font-size:11px;color:var(--dim);display:block;margin-bottom:9px;letter-spacing:.08em}
+
+/* component bench */
+.bench{display:flex;flex-wrap:wrap;gap:34px;margin-top:36px;align-items:flex-start}
+.bslot{background:rgba(0,0,0,.35);border:4px solid var(--ink);padding:28px;min-width:250px;
+  display:flex;flex-direction:column;align-items:center;gap:16px}
+.bslot small{font-family:var(--mono);font-size:10px;color:var(--cyan);letter-spacing:.08em}
+
+/* live prototype */
+.live .ph{transition:none}
+.live-note{font-family:var(--mono);font-size:12px;color:var(--yellow);letter-spacing:.05em;margin-top:14px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:900px){.wrap{padding:0 16px}.unit{width:100%;max-width:390px}.logo{font-size:26px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="logo">OYLA!</div>
+  <div class="tagline">// SÜRÜKLE. SEÇ. KALABALIK KARAR VERSİN.</div>
+  <p>UI/UX tasarım dosyası — 9 ekran, sürükleme etkileşiminin dört durumu, komponent seti ve
+     çalışan bir oylama prototipi. Ekranlar gerçek boyutta: 390×844, dikey.</p>
+</header>
+
+<!-- ================= 00 TOKENS ================= -->
+<section class="sec">
+  <div class="sec-no">00</div>
+  <h2>Tasarım dili</h2>
+  <p class="note">Koyu mor zemin, üç neon vurgu. Her yüzeyin 4px siyah kenarı ve blursuz sert
+    gölgesi var — 8-bit arcade dolabı hissi buradan geliyor. Fotoğraflar hiçbir zaman efekt almıyor;
+    retro dil sadece çerçevede, rozetlerde ve overlay'de yaşıyor.</p>
+
+  <div class="tokens">
+    <div class="sw"><div style="background:#0B0416"></div><p><b>void</b>#0B0416 · zemin</p></div>
+    <div class="sw"><div style="background:#190A2E"></div><p><b>panel</b>#190A2E · kart</p></div>
+    <div class="sw"><div style="background:#FF2D78"></div><p><b>pink</b>#FF2D78 · A tarafı, aksiyon</p></div>
+    <div class="sw"><div style="background:#FFD23F"></div><p><b>yellow</b>#FFD23F · vurgu, kazanan</p></div>
+    <div class="sw"><div style="background:#34E5FF"></div><p><b>cyan</b>#34E5FF · B tarafı, veri</p></div>
+    <div class="sw"><div style="background:#04010A"></div><p><b>ink</b>#04010A · kenar, gölge</p></div>
+  </div>
+
+  <div class="typerow">
+    <div>
+      <small>DISPLAY — Press Start 2P · başlık, yüzde, buton</small>
+      <div style="font-family:var(--px);font-size:26px;color:var(--yellow);line-height:1.6">%72 SENİN GİBİ</div>
+    </div>
+    <div>
+      <small>UI — Space Grotesk · gövde metni, açıklama</small>
+      <div style="font-size:19px">İki görsel, tek soru, doğru cevap yok.</div>
+    </div>
+    <div>
+      <small>DATA — Space Mono · sayaç, etiket, zaman</small>
+      <div style="font-family:var(--mono);font-size:16px;color:var(--cyan);letter-spacing:.06em">12.480 OY · 3s 14dk</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIVE ================= -->
+<section class="sec">
+  <div class="sec-no">★</div>
+  <h2>Canlı prototip — oy verme jesti</h2>
+  <p class="note">Görsellerden birine doğru sürükle ya da dokun. Eşiği geçtiğinde oy kilitlenir,
+    sonuç 0.8 saniye görünür ve sıradaki soru gelir. Tasarımın tek öğrenilmesi gereken hareketi bu.</p>
+
+  <div class="gallery live">
+    <div class="unit">
+      <div class="phone" id="proto">
+        <div class="notch"></div>
+        <div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-a" id="pa"><i>A</i><em>SEÇENEK A</em></div>
+            <div class="ph ph-b" id="pb"><i>B</i><em>SEÇENEK B</em></div>
+          </div>
+          <div class="div-v" id="pdiv"></div>
+          <div class="hud">
+            <div class="chip">#OTOMOBİL</div>
+            <div class="chip warm">SERİ 12 🔥</div>
+          </div>
+          <div class="qcenter" id="pq">
+            <div class="vs">VS</div>
+            <div class="qbadge">BMW MI<br>MERCEDES Mİ?</div>
+          </div>
+          <div class="hint" id="phint">← SÜRÜKLE YA DA DOKUN →</div>
+        </div>
+        <div class="nav">
+          <div class="on"><div class="glyph">▶</div><b>AKIŞ</b></div>
+          <div class="create">+</div>
+          <div><div class="glyph">◍</div><b>PROFİL</b></div>
+        </div>
+      </div>
+      <div class="live-note">Sürükle eşiği: yatayda 90px. Altında kalırsan oy iptal, görseller yerine döner.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 01 ONBOARDING ================= -->
+<section class="sec">
+  <div class="sec-no">01</div>
+  <h2>Onboarding — 3 ekran, atlanabilir</h2>
+  <p class="note">Metin öğretmez, hareket öğretir. İkinci ekranda kullanıcı gerçek bir soruya oy verir;
+    üçüncü ekranda kendi oyunun sonucunu görür. Kayıt olmadan oylamaya başlanır, hesap ancak
+    soru oluştururken istenir.</p>
+
+  <div class="gallery">
+    <!-- ONB 1 -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="pad" style="display:flex;flex-direction:column">
+          <div style="text-align:right"><span class="tag">ATLA</span></div>
+          <div style="margin-top:70px;text-align:center">
+            <div style="font-family:var(--px);font-size:38px;color:var(--yellow);
+              text-shadow:4px 4px 0 var(--pink),8px 8px 0 var(--ink);line-height:1.4">OYLA!</div>
+          </div>
+          <div style="margin-top:64px" class="h-title">İKİ GÖRSEL.<br>TEK SORU.<br>DOĞRU CEVAP YOK.</div>
+          <p style="color:var(--dim);margin-top:18px;line-height:1.7;font-size:15px">
+            Kazananı çoğunluk belirler. Sen sadece hangisini sevdiğini söyle.</p>
+          <div class="footer-slot">
+            <div class="stepdots" style="margin-bottom:20px"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-y">BAŞLA</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>01.1</b> AÇILIŞ<span>Tek mesaj: doğru cevap yok. Kayıt yok, izin isteği yok.</span></div>
+    </div>
+
+    <!-- ONB 2 -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-c" style="width:58%"><i>A</i></div>
+            <div class="ph ph-d" style="width:42%"><i>B</i></div>
+          </div>
+          <div class="div-v" style="left:58%"></div>
+          <div class="qcenter" style="left:58%">
+            <div class="vs">VS</div>
+            <div class="qbadge">ESPRESSO MU<br>AMERICANO MU?</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:190px;text-align:center;z-index:30">
+            <div style="display:inline-block;background:var(--yellow);border:4px solid var(--ink);
+              box-shadow:5px 5px 0 var(--pink);padding:14px 18px;font-family:var(--px);font-size:11px;
+              color:var(--ink);line-height:1.8">SEVDİĞİN TARAFA<br>SÜRÜKLE →</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:110px;text-align:center;z-index:30;
+            font-family:var(--px);font-size:26px;color:var(--white)">☞</div>
+        </div>
+      </div>
+      <div class="cap"><b>01.2</b> JESTİ ÖĞRET<span>Anlatmak yerine yaptırıyor: ekran gerçek bir soruyla dolu, parmak animasyonu jesti taklit ediyor.</span></div>
+    </div>
+
+    <!-- ONB 3 -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-c" style="width:76%"><i>A</i></div>
+            <div class="ph ph-d dim" style="width:24%"><i>B</i></div>
+          </div>
+          <div class="overlay">
+            <div class="big-pct">%64</div>
+            <div class="verdict">SENİN GİBİ<br>DÜŞÜNDÜ</div>
+            <div class="tally"><div class="a" style="width:64%"></div><div class="b" style="width:36%"></div></div>
+            <div class="metaline" style="margin-top:12px">8.402 OY</div>
+            <div style="position:absolute;bottom:110px;left:24px;right:24px">
+              <div class="btn btn-p">AKIŞA GİR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>01.3</b> ÖDÜL ANI<span>İlk oyun sonucu hemen gösterilir — döngünün bağımlılık yapan kısmı ilk 15 saniyede yaşanır.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02-03 FEED ================= -->
+<section class="sec">
+  <div class="sec-no">02 / 03</div>
+  <h2>Oylama akışı — iki yerleşim modu</h2>
+  <p class="note">Yerleşim modunu soruyu oluşturan seçer, kullanıcı değil: portre fotoğraflar dikey
+    split'te, manzara/ürün görselleri yatay split'te daha iyi duruyor. Soru rozeti her iki modda da
+    ekranın tam merkezinde, bölme çizgisinin üstünde. Rozet siyah zeminli olduğu için altındaki
+    fotoğraf ne olursa olsun kontrast korunuyor.</p>
+
+  <div class="gallery">
+    <!-- FEED VERTICAL -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-a"><i>A</i><em>SEÇENEK A</em></div>
+            <div class="ph ph-b"><i>B</i><em>SEÇENEK B</em></div>
+          </div>
+          <div class="div-v"></div>
+          <div class="hud">
+            <div class="chip">#STİL</div>
+            <div class="chip warm">SERİ 12 🔥</div>
+          </div>
+          <div class="qcenter">
+            <div class="vs">VS</div>
+            <div class="qbadge">HANGİ KOMBİN<br>DAHA İYİ?</div>
+          </div>
+          <div class="hint">← SÜRÜKLE YA DA DOKUN →</div>
+        </div>
+        <div class="nav">
+          <div class="on"><div class="glyph">▶</div><b>AKIŞ</b></div>
+          <div class="create">+</div>
+          <div><div class="glyph">◍</div><b>PROFİL</b></div>
+        </div>
+      </div>
+      <div class="cap"><b>02</b> AKIŞ — DİKEY SPLIT<span>Sol/sağ tam yükseklik. Yüzler ve kombinler için varsayılan mod.</span></div>
+    </div>
+
+    <!-- FEED HORIZONTAL -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-h">
+            <div class="ph ph-c"><i>A</i><em>SEÇENEK A</em></div>
+            <div class="ph ph-d"><i>B</i><em>SEÇENEK B</em></div>
+          </div>
+          <div class="div-h"></div>
+          <div class="hud">
+            <div class="chip">#OTOMOBİL</div>
+            <div class="chip warm">SERİ 12 🔥</div>
+          </div>
+          <div class="qcenter">
+            <div class="vs">VS</div>
+            <div class="qbadge">BMW MI<br>MERCEDES Mİ?</div>
+          </div>
+          <div class="hint">↑ SÜRÜKLE YA DA DOKUN ↓</div>
+        </div>
+        <div class="nav">
+          <div class="on"><div class="glyph">▶</div><b>AKIŞ</b></div>
+          <div class="create">+</div>
+          <div><div class="glyph">◍</div><b>PROFİL</b></div>
+        </div>
+      </div>
+      <div class="cap"><b>03</b> AKIŞ — YATAY SPLIT<span>Üst/alt tam genişlik. Manzara, araç, ürün görselleri için.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 DRAG STATES ================= -->
+<section class="sec">
+  <div class="sec-no">04</div>
+  <h2>Sürükleme dizisi — durgun → sürükleme → kilit → sonuç</h2>
+  <p class="note">Bölme çizgisi parmağı takip ediyor: seçilen görsel büyürken diğeri gerçek zamanlı
+    daralıyor. Bu fiziksel geri bildirim, oyun mekaniğinin tamamı. Eşik 90px; eşikte tek bir haptic
+    darbe var, kilitte ikinci ve daha sert bir darbe geliyor.</p>
+
+  <div class="gallery">
+    <!-- rest -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v"><div class="ph ph-a"><i>A</i></div><div class="ph ph-b"><i>B</i></div></div>
+          <div class="div-v"></div>
+          <div class="qcenter"><div class="vs">VS</div><div class="qbadge">HANGİSİ DAHA<br>YAKIŞIKLI?</div></div>
+          <div class="hint">← SÜRÜKLE YA DA DOKUN →</div>
+        </div>
+      </div>
+      <div class="cap"><b>04.1</b> DURGUN<span>50/50. Rozet merkezde, ipucu metni ilk üç oturumdan sonra kayboluyor.</span></div>
+    </div>
+
+    <!-- mid drag -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-a" style="width:31%"><i>A</i></div>
+            <div class="ph ph-b" style="width:69%"><i>B</i></div>
+          </div>
+          <div class="div-v" style="left:31%"></div>
+          <div class="qcenter" style="left:31%;opacity:.45">
+            <div class="vs">VS</div><div class="qbadge">HANGİSİ DAHA<br>YAKIŞIKLI?</div>
+          </div>
+          <div style="position:absolute;top:50%;right:34px;transform:translateY(-50%);z-index:30;
+            font-family:var(--px);font-size:36px;color:var(--cyan);text-shadow:4px 4px 0 var(--ink)">▶</div>
+        </div>
+      </div>
+      <div class="cap"><b>04.2</b> SÜRÜKLEME<span>Rozet şeffaflaşıp yoldan çekiliyor. Seçilen tarafta yön oku beliriyor — eşiğe yaklaşıldığının işareti.</span></div>
+    </div>
+
+    <!-- locked -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-a dim" style="width:16%"><i>A</i></div>
+            <div class="ph ph-b" style="width:84%"><i>B</i></div>
+          </div>
+          <div class="div-v" style="left:16%"></div>
+          <div style="position:absolute;inset:8px 8px 8px calc(16% + 8px);border:6px solid var(--yellow);z-index:28"></div>
+          <div style="position:absolute;top:50%;left:58%;transform:translate(-50%,-50%);z-index:30;
+            font-family:var(--px);font-size:22px;color:var(--yellow);background:var(--ink);
+            border:4px solid var(--yellow);padding:14px 18px;box-shadow:5px 5px 0 var(--pink)">SEÇİLDİ</div>
+        </div>
+      </div>
+      <div class="cap"><b>04.3</b> KİLİT<span>Eşik geçildi. Kaybeden taraf soluyor, kazanan sarı çerçeveyle mühürleniyor. Geri alma yok.</span></div>
+    </div>
+
+    <!-- result -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v">
+            <div class="ph ph-a dim" style="width:16%"><i>A</i></div>
+            <div class="ph ph-b" style="width:84%"><i>B</i></div>
+          </div>
+          <div class="overlay">
+            <div class="big-pct">%72</div>
+            <div class="verdict">SENİN GİBİ<br>DÜŞÜNDÜ</div>
+            <div class="tally"><div class="b" style="width:72%"></div><div class="a" style="width:28%"></div></div>
+            <div class="metaline" style="margin-top:12px">12.480 OY</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:26px;text-align:center;z-index:40;
+            font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em">SONRAKİ SORU 0.8s</div>
+        </div>
+      </div>
+      <div class="cap"><b>04.4</b> SONUÇ<span>Yüzde tek bakışta okunacak kadar büyük. Kare kare (step) animasyon — yumuşak geçiş yok.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 RESULT EDGE CASES ================= -->
+<section class="sec">
+  <div class="sec-no">05</div>
+  <h2>Sonuç overlay'i — üç durum</h2>
+  <p class="note">Az oylu soruda yüzde göstermek yalan söylemek demek. 50 oyun altında yüzde yerine
+    öncülük rozeti çıkıyor; %48–52 bandında ise "kalabalık kararsız" durumu devreye giriyor.
+    Üçüncü durum azınlıkta kalma — metin suçlayıcı değil, ödüllendirici.</p>
+
+  <div class="gallery">
+    <!-- majority -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="feed">
+          <div class="split-v"><div class="ph ph-a dim" style="width:22%"><i>A</i></div><div class="ph ph-b" style="width:78%"><i>B</i></div></div>
+          <div class="overlay">
+            <div class="big-pct">%88</div>
+            <div class="verdict">SENİN GİBİ<br>DÜŞÜNDÜ</div>
+            <div class="tally"><div class="b" style="width:88%"></div><div class="a" style="width:12%"></div></div>
+            <div class="metaline" style="margin-top:12px">31.204 OY</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>05.1</b> ÇOĞUNLUK<span>Pembe/sarı gölge. Onay duygusu maksimum.</span></div>
+    </div>
+
+    <!-- minority -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="feed">
+          <div class="split-v"><div class="ph ph-a" style="width:78%"><i>A</i></div><div class="ph ph-b dim" style="width:22%"><i>B</i></div></div>
+          <div class="overlay">
+            <div class="big-pct" style="color:var(--cyan);text-shadow:6px 6px 0 var(--ink),12px 12px 0 var(--pink)">%9</div>
+            <div class="verdict cold">SENİN GİBİ DÜŞÜNDÜ<br>NADİR ZEVK</div>
+            <div class="tally"><div class="a" style="width:9%"></div><div class="b" style="width:91%"></div></div>
+            <div class="metaline" style="margin-top:12px">31.204 OY</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>05.2</b> AZINLIK<span>Renk cyan'a dönüyor, metin "yanıldın" demiyor. Azınlıkta kalmak da bir kimlik.</span></div>
+    </div>
+
+    <!-- low data -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="feed">
+          <div class="split-v"><div class="ph ph-a" style="width:78%"><i>A</i></div><div class="ph ph-b dim" style="width:22%"><i>B</i></div></div>
+          <div class="overlay">
+            <div style="font-family:var(--px);font-size:30px;color:var(--yellow);
+              text-shadow:5px 5px 0 var(--ink);line-height:1.6;text-align:center">İLK 20<br>OYLAYAN</div>
+            <div class="verdict cold" style="margin-top:14px">YÜZDE 50 OYDAN<br>SONRA AÇILIYOR</div>
+            <div class="metaline" style="margin-top:18px">ŞU AN 12 OY</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>05.3</b> YETERSİZ VERİ<span>50 oy eşiğinin altı. Yüzde saklanıyor, yerine erken oylayan rozeti veriliyor — eksiklik ödüle çevriliyor.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 CREATE ================= -->
+<section class="sec">
+  <div class="sec-no">06</div>
+  <h2>Soru oluşturma akışı</h2>
+  <p class="note">Üç adım, geri dönülebilir: görselleri seç → yerleşimi ve soruyu yaz → önizle ve yayınla.
+    Soru metni 60 karakterle sınırlı çünkü rozette iki satırdan fazlası okunmuyor. Yayın öncesi son
+    ekranda kullanıcı kendi sorusunu akıştaki haliyle görüyor.</p>
+
+  <div class="gallery">
+    <!-- step 1 -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="pad" style="display:flex;flex-direction:column">
+          <div class="h-title">GÖRSELLERİ SEÇ</div>
+          <div class="h-sub">ADIM 1 / 3 · TAM OLARAK İKİ GÖRSEL</div>
+          <div style="display:flex;gap:12px;margin-top:20px">
+            <div class="ph ph-a" style="flex:1;height:230px;border:4px solid var(--yellow)"><i>A</i></div>
+            <div style="flex:1;height:230px;border:4px dashed var(--dim);display:flex;
+              align-items:center;justify-content:center;font-family:var(--px);font-size:26px;color:var(--dim)">+</div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px">
+            <div class="btn btn-ghost" style="font-size:10px;padding:14px 6px">GALERİ</div>
+            <div class="btn btn-ghost" style="font-size:10px;padding:14px 6px">KAMERA</div>
+          </div>
+          <div class="card" style="margin-top:20px;border-color:var(--cyan);box-shadow:none">
+            <div style="font-family:var(--mono);font-size:11px;color:var(--cyan);line-height:1.9">
+              BAŞKASININ FOTOĞRAFINI<br>İZNİ OLMADAN YÜKLEME.<br>BİLDİRİLEN İÇERİK 1 SAATTE KALKAR.</div>
+          </div>
+          <div class="footer-slot">
+            <div class="stepdots" style="margin-bottom:20px"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-ghost">DEVAM</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>06.1</b> GÖRSEL SEÇİMİ<span>İkinci görsel yüklenene kadar "devam" pasif. Rıza uyarısı akışın içinde, gömülü bir yasal metinde değil.</span></div>
+    </div>
+
+    <!-- step 2 -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="pad" style="display:flex;flex-direction:column">
+          <div class="h-title">SORUYU YAZ</div>
+          <div class="h-sub">ADIM 2 / 3</div>
+          <div class="field" style="margin-top:18px">Hangisi daha yakışıklı?<span style="color:var(--pink)">|</span></div>
+          <div class="counter">23 / 60</div>
+
+          <div class="h-sub" style="margin-top:22px">YERLEŞİM</div>
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;height:104px;border:4px solid var(--yellow);display:flex">
+              <div class="ph ph-a" style="width:50%"></div><div class="ph ph-b" style="width:50%"></div>
+            </div>
+            <div style="flex:1;height:104px;border:4px solid var(--panel-2);display:flex;flex-direction:column">
+              <div class="ph ph-a" style="height:50%"></div><div class="ph ph-b" style="height:50%"></div>
+            </div>
+          </div>
+
+          <div class="h-sub" style="margin-top:22px">KATEGORİ</div>
+          <div style="margin-top:12px">
+            <span class="tag on">#STİL</span><span class="tag">#OTOMOBİL</span><span class="tag">#YEMEK</span>
+            <span class="tag">#MÜZİK</span><span class="tag">#SPOR</span>
+          </div>
+          <div class="footer-slot">
+            <div class="stepdots" style="margin-bottom:20px"><i class="on"></i><i class="on"></i><i></i></div>
+            <div class="btn btn-y">ÖNİZLE</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>06.2</b> SORU VE YERLEŞİM<span>Yerleşim seçimi minyatür olarak gösteriliyor — isim yerine şeklin kendisi.</span></div>
+    </div>
+
+    <!-- step 3 -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="feed">
+          <div class="split-v"><div class="ph ph-a"><i>A</i></div><div class="ph ph-b"><i>B</i></div></div>
+          <div class="div-v"></div>
+          <div class="hud"><div class="chip">#STİL</div><div class="chip warm">ÖNİZLEME</div></div>
+          <div class="qcenter"><div class="vs">VS</div><div class="qbadge">HANGİSİ DAHA<br>YAKIŞIKLI?</div></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:26px;z-index:40">
+            <div class="btn btn-p">YAYINLA</div>
+            <div class="btn btn-ghost" style="margin-top:12px;padding:12px;font-size:10px">GERİ DÖN, DÜZENLE</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>06.3</b> ÖNİZLE VE YAYINLA<span>Önizleme akışın birebir kopyası — sürprizsiz yayın.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 STATS ================= -->
+<section class="sec">
+  <div class="sec-no">07</div>
+  <h2>Soru istatistik ekranı</h2>
+  <p class="note">Soru sahibini geri getiren ekran bu. Üç sayı hiyerarşisi: toplam oy en büyük,
+    A/B dağılımı animasyonlu bar, zaman içindeki oy akışı sparkline. "Kim oyladı" gösterilmiyor —
+    oylar anonim, aksi halde arkadaş baskısı sonuçları bozar.</p>
+
+  <div class="gallery">
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="pad">
+          <div class="h-title" style="font-size:12px;line-height:1.9">HANGİSİ DAHA<br>YAKIŞIKLI?</div>
+          <div class="h-sub">3 GÜN 14 SAAT ÖNCE · #STİL</div>
+
+          <div style="display:flex;gap:10px;margin-top:18px;height:118px">
+            <div class="ph ph-a" style="flex:1;border:4px solid var(--pink)"><i>A</i></div>
+            <div class="ph ph-b" style="flex:1;border:4px solid var(--cyan)"><i>B</i></div>
+          </div>
+
+          <div class="statbar" style="margin-top:14px">
+            <div class="a" style="width:61%">%61</div>
+            <div class="b" style="width:39%">%39</div>
+          </div>
+
+          <div class="kpi">
+            <div><b>12.480</b><span>TOPLAM OY</span></div>
+            <div><b>%4,2</b><span>KAYDIRIP GEÇEN</span></div>
+            <div><b>842</b><span>SON 24 SAAT</span></div>
+          </div>
+
+          <div class="h-sub" style="margin-top:22px">ZAMANA GÖRE OY</div>
+          <div class="spark">
+            <i style="height:22%"></i><i style="height:54%"></i><i style="height:86%"></i>
+            <i style="height:100%"></i><i style="height:71%"></i><i style="height:48%"></i>
+            <i style="height:33%"></i><i style="height:26%"></i><i style="height:18%"></i>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px;
+            font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.08em">
+            <span>YAYIN</span><span>ŞİMDİ</span>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>07</b> SORU İSTATİSTİĞİ<span>Sparkline ilk 6 saatteki tepeyi gösteriyor — sahibine "tekrar paylaş" sinyali.</span></div>
+    </div>
+
+    <!-- profile -->
+    <div class="unit">
+      <div class="phone">
+        <div class="notch"></div><div class="statusbar"><span>21:04</span><span>▮▮▮ 87%</span></div>
+        <div class="pad">
+          <div style="display:flex;gap:16px;align-items:center">
+            <div class="avatar">MB</div>
+            <div>
+              <div style="font-family:var(--px);font-size:13px;color:var(--white)">@bekoo</div>
+              <div class="h-sub" style="margin-top:10px">SERİ 12 GÜN 🔥</div>
+            </div>
+          </div>
+
+          <div class="kpi">
+            <div><b>1.204</b><span>VERDİĞİN OY</span></div>
+            <div><b>18</b><span>SORUN</span></div>
+            <div><b>%68</b><span>ÇOĞUNLUKLA</span></div>
+          </div>
+
+          <div class="tabs">
+            <b class="on">SORULARIM</b><b>OY GEÇMİŞİM</b>
+          </div>
+
+          <div class="grid2">
+            <div class="mini"><div class="ph ph-a"></div><div class="ph ph-b"></div></div>
+            <div class="mini"><div class="ph ph-c"></div><div class="ph ph-d"></div></div>
+            <div class="mini"><div class="ph ph-d"></div><div class="ph ph-a"></div></div>
+            <div class="mini"><div class="ph ph-b"></div><div class="ph ph-c"></div></div>
+          </div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--dim);
+            letter-spacing:.08em;margin-top:14px">EN ÇOK OY ALAN: 12.480</div>
+        </div>
+        <div class="nav">
+          <div><div class="glyph">▶</div><b>AKIŞ</b></div>
+          <div class="create">+</div>
+          <div class="on"><div class="glyph">◍</div><b>PROFİL</b></div>
+        </div>
+      </div>
+      <div class="cap"><b>08</b> PROFİL<span>Üç sayı: oy, soru, çoğunlukla uyum oranı. "%68 çoğunlukla" kimlik hâline gelen metrik.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 COMPONENTS ================= -->
+<section class="sec">
+  <div class="sec-no">09</div>
+  <h2>Komponent seti</h2>
+  <p class="note">Her komponent 4px siyah kenar ve 5px blursuz gölge kuralına uyuyor. Sarı = birincil
+    aksiyon, pembe = A tarafı ve yayın, cyan = B tarafı ve veri. Bir ekranda en fazla bir sarı buton var.</p>
+
+  <div class="bench">
+    <div class="bslot"><small>SORU ROZETİ + VS</small>
+      <div class="qcenter" style="position:static;transform:none;width:auto">
+        <div class="vs">VS</div>
+        <div class="qbadge">HANGİSİ DAHA<br>YAKIŞIKLI?</div>
+      </div>
+    </div>
+
+    <div class="bslot"><small>BUTONLAR</small>
+      <div class="btn btn-y" style="width:210px">BİRİNCİL</div>
+      <div class="btn btn-p" style="width:210px">YAYINLA</div>
+      <div class="btn btn-ghost" style="width:210px">İKİNCİL</div>
+    </div>
+
+    <div class="bslot"><small>DAĞILIM BARI</small>
+      <div class="statbar" style="width:230px"><div class="a" style="width:61%">%61</div><div class="b" style="width:39%">%39</div></div>
+      <div class="tally" style="width:230px;margin:0"><div class="a" style="width:33%"></div><div class="b" style="width:67%"></div></div>
+    </div>
+
+    <div class="bslot"><small>ETİKET VE ÇİPLER</small>
+      <div style="display:flex;gap:10px"><div class="chip">#STİL</div><div class="chip warm">SERİ 12 🔥</div></div>
+      <div><span class="tag on">SEÇİLİ</span><span class="tag">PASİF</span></div>
+    </div>
+
+    <div class="bslot" style="min-width:330px"><small>ALT NAVİGASYON</small>
+      <div style="position:relative;width:280px;height:86px">
+        <div class="nav" style="position:absolute;border-radius:0">
+          <div class="on"><div class="glyph">▶</div><b>AKIŞ</b></div>
+          <div class="create">+</div>
+          <div><div class="glyph">◍</div><b>PROFİL</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bslot"><small>SONUÇ OVERLAY'İ</small>
+      <div style="background:var(--void);border:4px solid var(--ink);padding:26px 30px;
+        display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div class="big-pct" style="font-size:40px">%72</div>
+        <div class="verdict" style="font-size:10px">SENİN GİBİ DÜŞÜNDÜ</div>
+      </div>
+    </div>
+
+    <div class="bslot"><small>METİN ALANI</small>
+      <div class="field" style="width:230px">Soru metni…</div>
+      <div class="counter" style="width:230px">0 / 60</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOTES ================= -->
+<section class="sec">
+  <div class="sec-no">10</div>
+  <h2>Erişilebilirlik ve etkileşim notları</h2>
+  <p class="note">
+    Kontrast: soru rozeti siyah zemin üzerinde beyaz metin (21:1), sarı buton üzerinde siyah metin (12,6:1),
+    cyan ve pembe yalnızca 11px üstü metinde kullanılıyor — hepsi WCAG AA üstü.<br><br>
+    Dokunma hedefleri: alt navigasyon 86px yüksekliğinde, oluştur butonu 66px, hiçbir aksiyon ekranın
+    üst yarısında değil. Oy verme jesti tek elle, başparmakla ulaşılabilir bölgede.<br><br>
+    Hareket duyarlılığı: reduced-motion açıkken görsel büyüme/daralma animasyonu kapanıyor, oy dokunmayla
+    veriliyor ve sonuç overlay'i animasyonsuz beliriyor. 0.8 saniyelik süre değişmiyor.<br><br>
+    Ekran okuyucu: her soru "Soru: hangisi daha yakışıklı. Seçenek A, seçenek B" olarak okunuyor;
+    sürükleme yerine iki ayrı buton sunuluyor. Sonuç sesli olarak "yüzde 72 senin gibi düşündü" biçiminde duyuruluyor.
+  </p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var box=document.getElementById('proto');
+  if(!box) return;
+  var a=document.getElementById('pa'), b=document.getElementById('pb'),
+      dv=document.getElementById('pdiv'), q=document.getElementById('pq'), hint=document.getElementById('phint');
+  var W=380, TH=90, start=null, dx=0, locked=false;
+
+  function paint(pct){
+    a.style.width=pct+'%'; b.style.width=(100-pct)+'%';
+    dv.style.left=pct+'%'; q.style.left=pct+'%';
+    q.style.opacity=Math.max(0.3, 1-Math.abs(pct-50)/26).toFixed(2);
+  }
+  function reset(){ paint(50); q.style.opacity=1; }
+
+  function finish(side){
+    if(locked) return; locked=true;
+    var pct = side==='a' ? 84 : 16;
+    paint(pct);
+    (side==='a'?b:a).classList.add('dim');
+    hint.style.display='none';
+    var crowd = side==='a' ? 61 : 39;
+    var ov=document.createElement('div');
+    ov.className='overlay';
+    ov.innerHTML='<div class="big-pct">%'+crowd+'</div>'+
+      '<div class="verdict">SENİN GİBİ<br>DÜŞÜNDÜ</div>'+
+      '<div class="tally"><div class="a" style="width:'+crowd+'%"></div>'+
+      '<div class="b" style="width:'+(100-crowd)+'%"></div></div>'+
+      '<div class="metaline" style="margin-top:12px">12.480 OY</div>';
+    box.querySelector('.feed').appendChild(ov);
+    setTimeout(function(){
+      ov.remove(); a.classList.remove('dim'); b.classList.remove('dim');
+      hint.style.display=''; locked=false; reset();
+    },1400);
+  }
+
+  box.addEventListener('pointerdown',function(e){ if(locked) return; start=e.clientX; });
+  box.addEventListener('pointermove',function(e){
+    if(start===null||locked) return;
+    dx=e.clientX-start;
+    var pct=Math.min(86,Math.max(14,50+(dx/W)*100));
+    paint(pct);
+  });
+  box.addEventListener('pointerup',function(e){
+    if(start===null||locked){ start=null; return; }
+    if(Math.abs(dx)>=TH){ finish(dx>0?'a':'b'); }
+    else { reset(); }
+    start=null; dx=0;
+  });
+  box.addEventListener('pointercancel',function(){ start=null; dx=0; if(!locked) reset(); });
+  a.addEventListener('click',function(){ if(Math.abs(dx)<6) finish('a'); });
+  b.addEventListener('click',function(){ if(Math.abs(dx)<6) finish('b'); });
+})();
+</script>
+</body>
+</html>
